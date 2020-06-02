@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_02_101408) do
+ActiveRecord::Schema.define(version: 2020_06_02_102255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 2020_06_02_101408) do
     t.index ["user_id"], name: "index_gambits_on_user_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "gambit_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gambit_id"], name: "index_likes_on_gambit_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -50,4 +59,6 @@ ActiveRecord::Schema.define(version: 2020_06_02_101408) do
   add_foreign_key "comments", "gambits"
   add_foreign_key "comments", "users"
   add_foreign_key "gambits", "users"
+  add_foreign_key "likes", "gambits"
+  add_foreign_key "likes", "users"
 end
