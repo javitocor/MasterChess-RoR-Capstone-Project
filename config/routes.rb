@@ -8,11 +8,15 @@ Rails.application.routes.draw do
     get '/signup', to: 'registrations#new'
     post '/login', to: 'devise/sessions#create'
     authenticated :user do
-      root 'posts#index'
+      root 'gambitss#index'
     end  
     unauthenticated do
       root 'devise/sessions#new'
     end
+  end
+
+  resources :gambits do
+    resources :comments
   end
   
 end
