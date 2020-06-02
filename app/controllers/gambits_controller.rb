@@ -25,18 +25,16 @@ class GambitsController < ApplicationController
   # POST /gambits
   # POST /gambits.json
   def create
-    @gambit = Gambit.new(gambit_params)
+    @gambit = current_user.gambits.new(gambit_params)
 
-    respond_to do |format|
-      if @gambit.save
-        format.html { redirect_to @gambit, notice: 'Gambit was successfully created.' }
-        format.json { render :show, status: :created, location: @gambit }
-      else
-        format.html { render :new }
-        format.json { render json: @gambit.errors, status: :unprocessable_entity }
-      end
+    if @gambit.save
+      redirect_to posts_path, notice: 'Gambit was successfully created.'
+    else
+      timeline_posts
+      render :index, alert: 'Gambit was not created.'
     end
   end
+
 
   # PATCH/PUT /gambits/1
   # PATCH/PUT /gambits/1.json

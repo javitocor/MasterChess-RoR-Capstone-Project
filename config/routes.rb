@@ -17,10 +17,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users
+  resources :users, only: [:index, :show]
   resources :gambits do
-    resources :comments
-    resources :likes
+    resources :comments, only: [:create, :destroy]
+    resources :likes, only: [:create, :destroy]
   end
   
 end
