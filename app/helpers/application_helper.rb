@@ -15,5 +15,14 @@ module ApplicationHelper
         else
           link_to('Like!', gambit_likes_path(gambit_id: gambit.id), method: :post)
         end
+    end
+
+    def follow_or_unfollow_btn(user)
+      follow = Following.find_by(followed: user, follower: current_user)
+      if like
+        link_to('Unfollow!', user_following_path(id: follow.id, followed_id: user.id), method: :delete)
+      else
+        link_to('Follow!', user_followings_path(followed_id: user.id), method: :post)
       end
+    end
 end
