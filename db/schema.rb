@@ -10,44 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_01_091551) do
+ActiveRecord::Schema.define(version: 2020_06_02_101408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "post_id"
     t.text "content"
+    t.bigint "user_id"
+    t.bigint "gambit_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["gambit_id"], name: "index_comments_on_gambit_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "friendships", force: :cascade do |t|
+  create_table "gambits", force: :cascade do |t|
+    t.text "text"
     t.bigint "user_id"
-    t.bigint "friend_id"
-    t.boolean "confirmed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["friend_id"], name: "index_friendships_on_friend_id"
-    t.index ["user_id"], name: "index_friendships_on_user_id"
-  end
-
-  create_table "likes", force: :cascade do |t|
-    t.integer "post_id"
-    t.integer "user_id"
-    t.index ["post_id"], name: "index_likes_on_post_id"
-    t.index ["user_id"], name: "index_likes_on_user_id"
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.integer "user_id"
-    t.text "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_posts_on_user_id"
+    t.index ["user_id"], name: "index_gambits_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -58,14 +41,13 @@ ActiveRecord::Schema.define(version: 2020_06_01_091551) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "gravatar_url"
-    t.string "provider"
-    t.string "uid"
+    t.string "username"
+    t.string "fullname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "friendships", "users"
-  add_foreign_key "friendships", "users", column: "friend_id"
+  add_foreign_key "comments", "gambits"
+  add_foreign_key "comments", "users"
+  add_foreign_key "gambits", "users"
 end
