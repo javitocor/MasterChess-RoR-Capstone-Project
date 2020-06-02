@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'followings/create'
+  get 'followings/destroy'
   root 'gambits#index'
 
   devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret',

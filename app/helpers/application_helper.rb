@@ -13,7 +13,7 @@ module ApplicationHelper
         if like
           link_to('Dislike!', gambit_like_path(id: like.id, gambit_id: gambit.id), method: :delete)
         else
-          link_to('Like!', gambit_likes_path(gambit_id: post.id), method: :post)
+          link_to('Like!', gambit_likes_path(gambit_id: gambit.id), method: :post)
         end
       end
 end
