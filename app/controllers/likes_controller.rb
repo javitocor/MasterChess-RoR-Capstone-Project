@@ -2,26 +2,22 @@ class LikesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @like = Like.new(like_params)
+    @like = current_user.likes.new(gambit_id: params[:gambit_id])
 
-    respond_to do |format|
-      if @like.save
-        format.html { redirect_to @like, notice: 'Like was successfully created.' }
-        format.json { render :show, status: :created, location: @like }
-      else
-        format.html { render :new }
-        format.json { render json: @like.errors, status: :unprocessable_entity }
-      end
+    if @like.save
+      redirect_back(fallback_location: root_path, notice: 'You liked a gambit.')
+    else
+      redirect_back(fallback_location: root_path, notice: 'You cannot like this gambit.')
     end
   end
 
-  # DELETE /likes/1
-  # DELETE /likes/1.json
   def destroy
-    @like.destroy
-    respond_to do |format|
-      format.html { redirect_to likes_url, notice: 'Like was successfully destroyed.' }
-      format.json { head :no_content }
+    like = Like.find_by(id: params[:id], user: current_user, gambit_id: params[:gambit_id])
+    if like
+      like.destroy
+      redirect_back(fallback_location: root_path, notice: 'You disliked a gambit.')
+    else
+      redirect_back(fallback_location: root_path, alert: 'You cannot dislike gambit that you did not like before.')
     end
   end
 
