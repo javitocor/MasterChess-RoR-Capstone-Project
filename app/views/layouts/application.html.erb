@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Masterchess</title>
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,17 @@
   </head>
 
   <body>
+     <% if notice.present? %>
+      <div class="notice">
+        <p> <%= notice %> </p>
+      </div>
+    <% end %>
+    <% if alert.present? %>
+      <div class="alert">
+        <p> <%= alert %> </p>
+      </div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

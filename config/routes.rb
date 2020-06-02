@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   root 'gambits#index'
 
   devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret',
@@ -10,12 +11,13 @@ Rails.application.routes.draw do
     get '/signup', to: 'registrations#new'
     post '/login', to: 'devise/sessions#create'
     authenticated :user do
-      root 'gambitss#index'
+      root 'gambits#index'
     end  
     unauthenticated do
       root 'devise/sessions#new'
     end
   end
+
   resources :users
   resources :gambits do
     resources :comments

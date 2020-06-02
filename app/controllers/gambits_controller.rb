@@ -1,5 +1,6 @@
 class GambitsController < ApplicationController
   before_action :set_gambit, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /gambits
   # GET /gambits.json
@@ -69,6 +70,6 @@ class GambitsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def gambit_params
-      params.fetch(:gambit, {})
+      params.require(:gambit).permit(:text)
     end
 end
