@@ -1,11 +1,11 @@
 <div class="list-group-item list-group-item-action">
-    <div class="d-flex w-100 justify-content-between mb-2">
+    <div class="likediv w-100mb-2">
       <%= link_to gambit.user.username, user_path(gambit.user) %>
-      <small class=""><%= gambit.created_at.strftime("%Y/%m/%d") %> 
+      <small class="likes"><%= gambit.created_at.strftime("%Y/%m/%d") %> 
         <%= like_or_dislike_btn(gambit) %> <span class="badge badge-primary badge-pill"><%= gambit.likes.count %></span>
       </small>
     </div>
-    <p><%= gambit.text %></p>
+    <p class="gambitext"><%= gambit.text %></p>
 
     <div class=''>
       <span>Comments: <%= gambit.comments.count %></span>
