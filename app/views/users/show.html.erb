@@ -1,13 +1,17 @@
 <% provide(:title, "#{@user.username}") %>
 <div class="container">
-  <div class="col-md-8 bg-secondary">          
+  <div class="col-md-8 bg-secondary"> 
+        <div>asdasdsada</div>         
           <div class="form-group bg-white">
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder='Send a Gambit' aria-label="Search">
+            <form>
+                <div class="form-group">
+                    <label for="comment">Gambit to <%= @user.username %>:</label>
+                    <textarea class="form-control" rows="2" id="comment"></textarea>
+                </div>
                 <button class="btn btn-primary my-2 my-sm-0" type="submit">Gambit</button>
             </form>
           </div>
-          <h1 class="my-4">Your Recent Gambits</h1>
+          <h3 class="my-4">Your Recent Gambits</h3>
 
           <!-- Blog Post -->
           <div class="list-group">
@@ -29,12 +33,14 @@
         <!-- Sidebar Widgets Column -->
         <div class="col-md-3">
             <div>
-                <%= @user.username %>
-                <%= @user.fullname %>
-                <%= @user.gambits.count %>
-                <%= @user.friends.count %>
-                <%= @user.followers.count %>
-                <%= link_to follow_or_unfollow_btn(@user) %>
+                <p><%= @user.username %></p>
+                <p><%= @user.fullname %></p>
+                <p>Gambits :<%= @user.gambits.count %></p>
+                <p>Following: <%= @user.friends.count %></p>
+                <p>Followers: <%= @user.followers.count %></p>
+                <% if current_user != @user %>
+                  <%= link_to follow_or_unfollow_btn(@user) %>
+                <% end %>
             </div>
           <!-- Search Widget -->
           <div class="card my-4">

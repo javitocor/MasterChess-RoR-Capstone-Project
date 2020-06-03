@@ -1,8 +1,8 @@
 <% provide(:title, "Homepage") %>
-<div class="container">
-  <div class="navbar navbar-light bg-light">
-    <div class="p-1 border-primary border-bottom">Gambits</div>
-    <div class="">Who to Follow</div>
+<div class="container-fluid">
+  <div class="gambitbar mt-0">
+    <h5 class="gambito" href="#">Gambits</h5>
+    <h5 class="gambito2">Who to Follow</h5>
   </div>
   <div class="col-md-8 bg-secondary">          
           <div class="form-group bg-white">
@@ -25,7 +25,7 @@
           <div class="list-group">
               <%= render @timeline_gambits %>
           </div>
-
+          
           <!-- Pagination -->
           <ul class="pagination justify-content-center mb-4">
             <li class="page-item">
@@ -43,7 +43,6 @@
 
           <!-- Search Widget -->
           <div class="card my-4">
-            <h5 class="card-header">Who to Follow</h5>
             <div class="card-body">
               <div class="input-group">
                 <ul class="list-unstyled mb-0">
@@ -61,5 +60,6 @@
             </div>
           </div> 
   </div>
+  
 </div>
 

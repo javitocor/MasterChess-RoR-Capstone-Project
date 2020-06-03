@@ -6,7 +6,7 @@ class GambitsController < ApplicationController
   # GET /gambits.json
   def index
     @gambit = Gambit.new
-    @user = User.all
+    @user = User.all    
     timeline_gambit
   end
 

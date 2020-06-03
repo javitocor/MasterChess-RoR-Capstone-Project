@@ -73,3 +73,29 @@ text-align:center;
   font-size: 10px;
   color: red;
 }
+
+.gambitbar {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  height :50px;
+}
+
+.gambito {
+  text-align: center;
+}
+
+.gambito2 {
+  text-align: center;
+  padding: 5px 200px 5px 0;
+}
+
+.navright {
+  margin-left: 500px;
+}
+
+.navlink {
+  padding-left:30px;
+  padding-right:30px;
+}
