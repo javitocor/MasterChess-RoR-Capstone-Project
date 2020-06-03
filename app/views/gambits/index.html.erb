@@ -1,11 +1,11 @@
 <% provide(:title, "Homepage") %>
 <div class="container">
-  <nav class="navbar navbar-light bg-light d-flex justify-content-between">
-    <a class="p-1 border-primary border-bottom">Navbar</a>
-    <a class="">Who to Follow</a>
-  </nav>
-  <div class="col-md-8">          
-          <div class="form-group">
+  <div class="navbar navbar-light bg-light">
+    <div class="p-1 border-primary border-bottom">Gambits</div>
+    <div class="">Who to Follow</div>
+  </div>
+  <div class="col-md-8 bg-secondary">          
+          <div class="form-group bg-white">
             <%= form_for(@gambit) do |form| %>
               <%= form.label :Add_your_Gambit %>
               <%= form.text_field :text, id: :gambit_text, class: 'form-control', placeholder: 'Compose your New Gambit' %>
@@ -14,6 +14,7 @@
                   <%= "Gambit could not be saved. #{@gambit.errors.full_messages.join('. ')}" %>
                 </p>
               <% end %>
+              <br>
               <%= form.submit 'Save', class: 'btn btn-primary btn-sm' %>
             <% end %>
           </div>
@@ -21,10 +22,8 @@
           <h4>All the gambits of your MasterChess friends</h4>
 
           <!-- Blog Post -->
-          <div class="card mb-9">
-            <ul class="">
+          <div class="list-group">
               <%= render @timeline_gambits %>
-            </ul>
           </div>
 
           <!-- Pagination -->

@@ -2,6 +2,8 @@
     <div class="logo">
         <% if current_user %>
             <h3><%= current_user.username %></h3>
+            <h5>Following: <%= current_user.friends.count %></h5>
+            <h5>Followers: <%= current_user.followers.count %></h5>
         <%else%>
             <img src="http://lorempixel.com/output/people-q-g-64-64-1.jpg" class="img-responsive center-block" alt="Logo">
         <% end %>
@@ -9,11 +11,11 @@
     <br>
     <div class="left-navigation">
         <ul class="list">
-            <li>Home</li>
-            <li>Connect</li>
-            <li>Discover</li>
-            <li>People</li>
-            <li>Statics</li>
+            <li><i class="fas fa-home"></i> Home</li>
+            <li><i class="fas fa-at"></i> Connect</li>
+            <li>&num; Discover</li>
+            <li><i class="fas fa-user"></i> People</li>
+            <li><i class="fas fa-signal"></i> Statics</li>
         </ul>
     </div>
 </div>

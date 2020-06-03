@@ -1,31 +1,28 @@
-<li class="">
-  <div>
-    <div class='' >
-      <%= link_to gambit.user.username, user_path(gambit.user), class: '' %>
+<div class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between mb-2">
+      <%= link_to gambit.user.username, user_path(gambit.user) %>
+      <small class=""><%= gambit.created_at.strftime("%Y/%m/%d") %> 
+        <%= like_or_dislike_btn(gambit) %> <span class="badge badge-primary badge-pill"><%= gambit.likes.count %></span>
+      </small>
     </div>
+    <p><%= gambit.text %></p>
+
     <div class=''>
-      <span class=''> <%= gambit.created_at.strftime("%Y/%m/%d") %> </span>
-      <%= like_or_dislike_btn(gambit) %> <%= gambit.likes.count %>
-    </div>
-  </div>
-  <p class="">
-    <%= gambit.text %>
-  </p>
+      <span>Comments: <%= gambit.comments.count %></span>
+        <% gambit.comments.each do |comment| %>
+          <div class="">
+            <p>
+              <b><%#= gravatar_for comment.user, size: 15 %> <%#= comment.user.username %>:</b> <%= comment.content %>
+            </p>
+            <span> <%#= comment.created_at.strftime("%Y/%m/%d") %> </span>
+          </div>
+        <% end %>
 
-  <div class=''>
-  <p>Comments: <%= gambit.comments.count %></p>
-    <% gambit.comments.each do |comment| %>
-      <div class="">
-        <p>
-          <b><%#= gravatar_for comment.user, size: 15 %> <%#= comment.user.username %>:</b> <%= comment.content %>
-        </p>
-        <span> <%#= comment.created_at.strftime("%Y/%m/%d") %> </span>
-      </div>
-    <% end %>
-
-    <%= form_for(gambit.comments.new, url: gambit_comments_path(gambit)) do |form| %>
-      <%= form.text_field :content, id: :comment_content, class: '', placeholder: 'Add new Comment' %>
-      <%= form.submit 'Comment', class: 'btn btn-primary' %>
-    <% end %>
+        <%= form_for(gambit.comments.new, url: gambit_comments_path(gambit)) do |form| %>
+          <%= form.text_field :content, id: :comment_content, class: 'form-control', placeholder: 'Add new Comment' %><br>
+          <%= form.submit 'Comment', class: 'btn btn-primary btn-sm' %>
+        <% end %>
   </div>
-</li>
+</div>
+
+  

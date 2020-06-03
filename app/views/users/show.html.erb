@@ -1,4 +1,60 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, "#{@user.username}") %>
+<div class="container">
+  <div class="col-md-8 bg-secondary">          
+          <div class="form-group bg-white">
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder='Send a Gambit' aria-label="Search">
+                <button class="btn btn-primary my-2 my-sm-0" type="submit">Gambit</button>
+            </form>
+          </div>
+          <h1 class="my-4">Your Recent Gambits</h1>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+          <!-- Blog Post -->
+          <div class="list-group">
+              <%= render @gambits %>
+          </div>
+
+          <!-- Pagination -->
+          <ul class="pagination justify-content-center mb-4">
+            <li class="page-item">
+              <a class="page-link" href="#">&larr; Older</a>
+            </li>
+            <li class="page-item disabled">
+              <a class="page-link" href="#">Newer &rarr;</a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-3">
+            <div>
+                <%= @user.username %>
+                <%= @user.fullname %>
+                <%= @user.gambits.count %>
+                <%= @user.friends.count %>
+                <%= @user.followers.count %>
+                <%= link_to follow_or_unfollow_btn(@user) %>
+            </div>
+          <!-- Search Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">FOLLOWED BY:</h5>
+            <div class="card-body">
+              <div class="input-group">
+                <ul class="list-unstyled mb-0">
+                    <li>
+                      <%#= link_to @user.friends.sample.username, user_path(User.find_by_username(@user.friends.sample.username)) %>
+                    </li>
+                    <li>
+                      <%#= link_to @user.friends.sample.username, user_path(User.find_by_username(@user.friends.sample.username)) %>
+                    </li>
+                    <li>
+                      <%#= link_to @user.friends.sample.username, user_path(User.find_by_username(@user.friends.sample.username)) %>
+                    </li>
+                  </ul>
+              </div>
+            </div>
+          </div> 
+  </div>
+</div>
+
