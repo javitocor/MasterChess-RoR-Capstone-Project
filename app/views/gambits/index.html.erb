@@ -1,25 +1,66 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, "Homepage") %>
+<div class="container">
+  <nav class="navbar navbar-light bg-light d-flex justify-content-between">
+    <a class="p-1 border-primary border-bottom">Navbar</a>
+    <a class="">Who to Follow</a>
+  </nav>
+  <div class="col-md-8">          
+          <div class="form-group">
+            <%= form_for(@gambit) do |form| %>
+              <%= form.label :Add_your_Gambit %>
+              <%= form.text_field :text, id: :gambit_text, class: 'form-control', placeholder: 'Compose your New Gambit' %>
+              <% if @gambit.errors.full_messages.any? %>
+                <p class="errors">
+                  <%= "Gambit could not be saved. #{@gambit.errors.full_messages.join('. ')}" %>
+                </p>
+              <% end %>
+              <%= form.submit 'Save', class: 'btn btn-primary btn-sm' %>
+            <% end %>
+          </div>
+          <h1 class="my-4">Recent Gambits</h1>
+          <h4>All the gambits of your MasterChess friends</h4>
 
-<h1>Gambits</h1>
+          <!-- Blog Post -->
+          <div class="card mb-9">
+            <ul class="">
+              <%= render @timeline_gambits %>
+            </ul>
+          </div>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+          <!-- Pagination -->
+          <ul class="pagination justify-content-center mb-4">
+            <li class="page-item">
+              <a class="page-link" href="#">&larr; Older</a>
+            </li>
+            <li class="page-item disabled">
+              <a class="page-link" href="#">Newer &rarr;</a>
+            </li>
+          </ul>
 
-  <tbody>
-    <% @gambits.each do |gambit| %>
-      <tr>
-        <td><%= link_to 'Show', gambit %></td>
-        <td><%= link_to 'Edit', edit_gambit_path(gambit) %></td>
-        <td><%= link_to 'Destroy', gambit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        </div>
 
-<br>
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-3">
 
-<%= link_to 'New Gambit', new_gambit_path %>
+          <!-- Search Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Who to Follow</h5>
+            <div class="card-body">
+              <div class="input-group">
+                <ul class="list-unstyled mb-0">
+                    <li>
+                      <%= link_to @user.sample.username, user_path(User.find_by_username(@user.sample.username)) %>
+                    </li>
+                    <li>
+                      <%= link_to @user.sample.username, user_path(User.find_by_username(@user.sample.username)) %>
+                    </li>
+                    <li>
+                      <%= link_to @user.sample.username, user_path(User.find_by_username(@user.sample.username)) %>
+                    </li>
+                  </ul>
+              </div>
+            </div>
+          </div> 
+  </div>
+</div>
+

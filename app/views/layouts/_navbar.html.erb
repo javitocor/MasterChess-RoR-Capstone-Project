@@ -11,13 +11,13 @@
     </div>
 </nav>
 
-          <% if notice.present? %>
-            <div class="notice">
-              <p> <%= notice %> </p>
-            </div>
-          <% end %>
-          <% if alert.present? %>
-            <div class="alert">
-              <p> <%= alert %> </p>
-            </div>
-          <% end %>
+<% if notice.present? %>
+  <div class="notice">
+    <p> <%= notice %> </p>
+  </div>
+<% end %>
+<% if alert.present? %>
+  <div class="alert">
+    <p> <%= alert %> </p>
+  </div>
+<% end %>

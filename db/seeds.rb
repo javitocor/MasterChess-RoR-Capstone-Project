@@ -9,7 +9,8 @@
 50.times do |n|
     email = "example-#{n+1}@microverse.org"
     User.create!(
-      name: Faker::Superhero.name,
+      username: Faker::Name.first_name,
+      fullname: 'Charlie',
       email: email,
       password: 'password',
       password_confirmation: 'password'
