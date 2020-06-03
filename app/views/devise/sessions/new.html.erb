@@ -1,21 +1,44 @@
 <% provide(:title, "Log In") %>
-<h2>Log in</h2>
+<div class="container">    
+        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+            <div style="margin-top:30px"class="panel panel-info" >
+                    <div class="text-center bg-primary">
+                        <div style="font-weight:700" class="panel-title">Sign In</div>                        
+                    </div>     
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
+                    <div style="padding-top:30px" class="panel-body bg-white">
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>                          
+                        
+                        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), class:"form-horizontal") do |f| %>            
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <%= f.input :email,
+                                                          required: false,
+                                                          autofocus: true,
+                                                          input_html: { autocomplete: "email" }, class:"form-control" %>
+                                        </div>                                
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <%= f.input :password,
+                                                            required: false,
+                                                            input_html: { autocomplete: "current-password" }, class:"form-control" %>
+                                        </div>                                    
+                                <div style="margin-top:10px" class="form-group">
+                                    <!-- Button -->
 
-<%= render "devise/shared/links" %>
+                                    <div class="col-sm-12 controls text-center w-75">
+                                      <%= f.button :submit, "Log in", class:"btn-lg btn-primary " %>
+                                    </div>
+                                </div>
+                              <% end %>                 
+                        </div>  
+                        <div class="bg-white text-center"><%= render "devise/shared/links" %></div>
+                                           
+                    </div> 
+                    </div>
+                    </div>
+                  </div>
+        </div> 
+</div>
+

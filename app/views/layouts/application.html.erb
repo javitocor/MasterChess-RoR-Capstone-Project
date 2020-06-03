@@ -7,9 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    
     <script src="https://kit.fontawesome.com/d4de0f4540.js" crossorigin="anonymous"></script>
   </head>
 
@@ -17,18 +15,13 @@
     <div class="container-fluid">
       <div class="row">
           <%= render 'layouts/header'%>
-          <% if notice.present? %>
-            <div class="notice">
-              <p> <%= notice %> </p>
-            </div>
-          <% end %>
-          <% if alert.present? %>
-            <div class="alert">
-              <p> <%= alert %> </p>
-            </div>
-          <% end %>
           <%= render 'layouts/navbar'%>
-          <%= yield %>
+
+          <div class="container-fluid">
+            <div class="row">
+              <%= yield %>
+            </div>
+          </div>
       </div>
     </div>
   </body>
