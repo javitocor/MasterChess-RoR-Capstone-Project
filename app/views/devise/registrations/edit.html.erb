@@ -67,7 +67,18 @@
                                   <%= f.file_field :avatar, onchange: "$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\\\|/]/).pop());", style: "display: none;" %>
                                 </span>
                             </div>
-                            <br>                                    
+                            <br>  
+                            <% if resource.cover_photo.attached? %>
+                              <%= image_tag resource.cover_photo, class:'rounded-circle' %> <br>
+                            <% else %>
+                              <%= image_tag('cover_default.jpg', size: "100x100") %> <br>
+                            <% end %>
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                  <span class="btn btn-small btn-primary btn-inverse" onclick="$(this).parent().find('input[type=file]').click();">Add New Cover</span>
+                                  <%= f.file_field :cover_photo, onchange: "$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\\\|/]/).pop());", style: "display: none;" %>
+                                </span>
+                            </div>                                  
                             <div style="margin-top:10px" class="form-group">
                                     <!-- Button -->
 

@@ -16,4 +16,9 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
   has_one_attached :cover_photo
+
+  def random
+    self.followers.sample.followed
+  end
+  
 end
