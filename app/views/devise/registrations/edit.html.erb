@@ -1,5 +1,5 @@
 <% provide(:title, "Update Info") %>
-<div class="container">    
+<div class="container-fluid">    
         <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
             <div style="margin-top:30px"class="panel panel-info" >
                     <div class="text-center bg-primary">
@@ -55,7 +55,19 @@
                                                                       hint: "we need your current password to confirm your changes",
                                                                       required: true,
                                                                       input_html: { autocomplete: "current-password" }, class:"form-control" %>
-                            </div>                                       
+                            </div>   
+                            <% if resource.avatar.attached? %>
+                              <%= image_tag resource.avatar, class:'rounded-circle' %> <br>
+                            <% else %>
+                              <%= image_tag('avatar_default.jpg', size: "100x100") %> <br>
+                            <% end %>
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                  <span class="btn btn-small btn-primary btn-inverse" onclick="$(this).parent().find('input[type=file]').click();">Add New Avatar</span>
+                                  <%= f.file_field :avatar, onchange: "$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\\\|/]/).pop());", style: "display: none;" %>
+                                </span>
+                            </div>
+                            <br>                                    
                             <div style="margin-top:10px" class="form-group">
                                     <!-- Button -->
 

@@ -1,11 +1,32 @@
 <div class="col-md-2 col-sm-4 sidebar1">
     <div class="logo">
         <% if current_user %>
-            <h3><%= current_user.username %></h3>
-            <h5>Following: <%= current_user.friends.count %></h5>
-            <h5>Followers: <%= current_user.followers.count %></h5>
+            <div class="aside">
+                <div class="aside-card">
+                    <div class="profile">
+                        <% if current_user.avatar.attached? %>
+                            <%= image_tag current_user.avatar, class:'img-fluid card-img' %>
+                        <% else %>
+                            <%= image_tag('avatar_default.jpg', class:'img-fluid card-img') %>
+                        <% end %>
+                    </div>
+                    <div class="username text-center">
+                        <p><%= current_user.username %></p>
+                    </div>
+                </div>
+                <div class="follow">
+                    <div class="follow-bottom">
+                        <div><%= current_user.friends.count %></div>
+                        <div>Following</div> 
+                    </div>
+                    <div class="follow-bottom">
+                        <div><%= current_user.followers.count %></div>
+                        <div>Followers</div>
+                    </div>
+                </div>
+            </div>
         <%else%>
-            <img src="http://lorempixel.com/output/people-q-g-64-64-1.jpg" class="img-responsive center-block" alt="Logo">
+            <img src="avatar_default.jpg" class="img-responsive center-block" alt="Logo">
         <% end %>
     </div>
     <br>

@@ -15,13 +15,22 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+  .left-navigation {
+    padding-top: 50px;
+  }
+
+  html, body {
+    height: 100%;
+  }
 
  .sidebar1 {
     background: rgba(13, 13, 73, 0.993);
     padding: 0px;
+    height:100%;
     min-height: 100%;
     margin-bottom: -101%;
     padding-bottom: 101%; 
+    position: relative;
 }
 .logo {
     max-height: 130px;
@@ -37,8 +46,9 @@
     list-style: none;
     padding-left: 0px;
 }
+
 .list> li, h5 {
-    padding: 5px 0px 5px 40px;
+    padding: 10px 0px 10px 40px;
 }
 .list>li:hover {
     background-color: rgba(255, 255, 255, 0.2);
@@ -173,4 +183,68 @@ text-align:center;
 	list-style-type: none;
 	padding: 0;
 	margin-left: 85px;
+}
+
+.blog-comment a {
+  padding-left: 10px;
+}
+
+.commpad {
+  padding: 0 0 0 50px; 
+}
+
+.aside-card {
+    width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items : center;
+  padding: 20px 10px;
+}
+
+.profile img {
+    width: 70px;
+    height: 55px;
+}
+
+.username p {
+  padding-right: 5px;
+}
+
+.aside {
+  background-color: rgba(4, 4, 27, 0.993);
+}
+
+.follow {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items : center;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.follow-bottom {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items : center;
+}
+
+.info-user {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items : center;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.user-info {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items : center;
+  border: 1px solid grey;
+  padding: 10px;
 }

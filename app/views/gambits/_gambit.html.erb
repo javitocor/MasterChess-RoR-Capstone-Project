@@ -1,19 +1,37 @@
 <div class="list-group-item list-group-item-action">
-    <div class="likediv w-100 mb-2">
-      <%= link_to gambit.user.username, user_path(gambit.user) %>
-      <small class="likes"><%= gambit.created_at.strftime("%Y/%m/%d") %> 
-        <%= like_or_dislike_btn(gambit) %> <span class="badge badge-primary badge-pill"><%= gambit.likes.count %></span>
-      </small>
+    <div class="blog-comment">
+      <ul class="comments">
+        <li class="clearfix">
+          <% if gambit.user.avatar.attached? %>
+            <%= image_tag gambit.user.avatar, class:'avatar' %>
+          <% else %>
+            <%= image_tag('avatar_default.jpg', class:'avatar') %>
+          <% end %>
+          <div class="post-comments">
+            <div class="likediv w-100 mb-2">
+              <%= link_to gambit.user.username, user_path(gambit.user) %>
+              <small class="likes"><%= gambit.created_at.strftime("%Y/%m/%d") %> 
+                <%= like_or_dislike_btn(gambit) %> <span class="badge badge-primary badge-pill"><%= gambit.likes.count %></span>
+              </small>
+            </div>
+            <hr>
+            <p><%= gambit.text %></p>
+          </div>
+        </li>		
+      </ul>
     </div>
-    <p class="gambitext"><%= gambit.text %></p>
-
-    <div class=''>
+    <hr>
+    <div class='commpad'>
         <div class="blog-comment">
           <h5 class="text-primary">Recent Comments: <%= gambit.comments.count %></h5>
           <ul class="comments">
             <% gambit.comments.each do |comment| %>
               <li class="clearfix">
-                <img src="" class="avatar" alt="">
+                <% if comment.user.avatar.attached? %>
+                  <%= image_tag comment.user.avatar, class:'avatar' %>
+                <% else %>
+                  <%= image_tag('avatar_default.jpg', class:'avatar') %>
+                <% end %>
                 <div class="post-comments">
                   <p class="meta"><%= comment.created_at.strftime("%Y/%m/%d") %> <%= link_to comment.user.username, user_path(comment.user) %> says :
                   <p><%= comment.content %></p>
@@ -23,7 +41,7 @@
           </ul>
         </div>
 
-        <div class="container">
+        <div class="container-fluid">
           <div class="row">
             <div class="col-md-6 offset-md-3">
               <div class="card card-info">
@@ -47,5 +65,8 @@
         </div>
   </div>
 </div>
+
+
+
 
   

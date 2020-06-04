@@ -27,14 +27,35 @@
         <!-- Sidebar Widgets Column -->
         <div class="col-md-3">
             <div>
-                <p><%= @user.username %></p>
-                <p><%= @user.fullname %></p>
-                <p>Gambits :<%= @user.gambits.count %></p>
-                <p>Following: <%= @user.friends.count %></p>
-                <p>Followers: <%= @user.followers.count %></p>
-                <% if current_user != @user %>
-                  <%= link_to follow_or_unfollow_btn(@user) %>
+              <div class="card text-center">
+                <% if @user.avatar.attached? %>
+                  <%= image_tag @user.avatar, class:'rounded-circle card-img-top', size: "100x100" %>
+                <% else %>
+                  <%= image_tag('avatar_default.jpg', class:'rounded-circle card-img-top', size: "100x100") %>
                 <% end %>
+                <div class="card-body">
+                  <p class="card-title"><%= @user.username %></p>
+                  <p class="card-text"><%= @user.fullname %></p>
+                  <% if current_user != @user %>
+                    <%= link_to follow_or_unfollow_btn(@user) %>
+                  <% end %>
+
+                </div>
+              </div>
+              <div class="info-user">
+                <div class="user-info">
+                  <div><%= @user.gambits.count %></div>
+                  <div>Gambits</div>
+                </div>
+                <div class="user-info">
+                  <div><%= @user.friends.count %></div>
+                  <div>Following</div>
+                </div>
+                <div class="user-info">
+                  <div><%= @user.followers.count %></div>
+                  <div>Followers</div>
+                </div>
+              </div>
             </div>
           <!-- Search Widget -->
           <div class="card my-4">
@@ -57,4 +78,7 @@
           </div> 
   </div>
 </div>
+
+
+
 

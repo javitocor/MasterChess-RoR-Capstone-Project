@@ -13,4 +13,7 @@ class User < ApplicationRecord
 
   has_many :friends, class_name: "Following", foreign_key: "follower_id"
   has_many :followers, class_name: "Following", foreign_key: "followed_id"
+
+  has_one_attached :avatar
+  has_one_attached :cover_photo
 end
