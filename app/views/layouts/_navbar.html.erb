@@ -7,7 +7,9 @@
             <a class="nav-item nav-link navlink" href="#"><i class="far fa-envelope"></i></a>
             <a class="nav-item nav-link navlink" href="#"><i class="fas fa-search"></i></a>
             <a class="nav-item nav-link navlink" href="#"><i class="fas fa-cog"></i></a>
-            <%= link_to 'logout', destroy_user_session_path, method: :delete, class:"nav-link"%>
+            <% if current_user %>
+              <%= link_to 'logout', destroy_user_session_path, method: :delete, class:"nav-link"%>
+            <% end %>
         </div>
     </div>
 </nav>

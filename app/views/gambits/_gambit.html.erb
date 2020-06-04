@@ -1,5 +1,5 @@
 <div class="list-group-item list-group-item-action">
-    <div class="likediv w-100mb-2">
+    <div class="likediv w-100 mb-2">
       <%= link_to gambit.user.username, user_path(gambit.user) %>
       <small class="likes"><%= gambit.created_at.strftime("%Y/%m/%d") %> 
         <%= like_or_dislike_btn(gambit) %> <span class="badge badge-primary badge-pill"><%= gambit.likes.count %></span>
@@ -8,20 +8,43 @@
     <p class="gambitext"><%= gambit.text %></p>
 
     <div class=''>
-      <span>Comments: <%= gambit.comments.count %></span>
-        <% gambit.comments.each do |comment| %>
-          <div class="">
-            <p>
-              <b><%#= gravatar_for comment.user, size: 15 %> <%#= comment.user.username %>:</b> <%= comment.content %>
-            </p>
-            <span> <%#= comment.created_at.strftime("%Y/%m/%d") %> </span>
-          </div>
-        <% end %>
+        <div class="blog-comment">
+          <h5 class="text-primary">Recent Comments: <%= gambit.comments.count %></h5>
+          <ul class="comments">
+            <% gambit.comments.each do |comment| %>
+              <li class="clearfix">
+                <img src="" class="avatar" alt="">
+                <div class="post-comments">
+                  <p class="meta"><%= comment.created_at.strftime("%Y/%m/%d") %> <%= link_to comment.user.username, user_path(comment.user) %> says :
+                  <p><%= comment.content %></p>
+                </div>
+              </li>	
+            <% end %>			
+          </ul>
+        </div>
 
-        <%= form_for(gambit.comments.new, url: gambit_comments_path(gambit)) do |form| %>
-          <%= form.text_field :content, id: :comment_content, class: 'form-control', placeholder: 'Add new Comment' %><br>
-          <%= form.submit 'Comment', class: 'btn btn-primary btn-sm' %>
-        <% end %>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 offset-md-3">
+              <div class="card card-info">
+                <div class="card-block">
+                  <%= form_for(gambit.comments.new, url: gambit_comments_path(gambit)) do |form| %>
+                    <%= form.text_field :content, id: :comment_content, class: 'form-control', placeholder: 'Add new Comment' %><br>
+                    <form class="form-inline">
+                      <div class="btn-group">
+                        <button class="btn" type="button"><span class="fa fa-picture-o fa-lg"></span></button>
+                        <button class="btn" type="button"><span class="fa fa-video-camera fa-lg"></span></button>
+                        <button class="btn" type="button"><span class="fa fa-microphone fa-lg"></span></button>
+                        <button class="btn" type="button"><span class="fa fa-music fa-lg"></span></button>
+                      </div>
+                      <%= form.submit 'Comment', class: 'btn btn-primary btn-sm' %>
+                    </form>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
   </div>
 </div>
 
