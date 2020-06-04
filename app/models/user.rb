@@ -20,5 +20,4 @@ class User < ApplicationRecord
   def random
     self.followers.sample.followed
   end
-  
 end

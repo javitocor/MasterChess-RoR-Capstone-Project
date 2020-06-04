@@ -11,7 +11,7 @@
                         <% end %>
                     </div>
                     <div class="username text-center">
-                        <p><%= current_user.username %></p>
+                        <p><%= link_to current_user.username, user_path(current_user) %></p>
                     </div>
                 </div>
                 <div class="follow">

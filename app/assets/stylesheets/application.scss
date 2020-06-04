@@ -89,18 +89,21 @@ text-align:center;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  align-items: center;
   height :50px;
   margin-bottom: 20px;
 }
 
 .gambito {
   text-align: center;
+  padding: 5px 200px 5px 0;
   border-bottom: 2px solid rgba(13, 13, 73, 0.993);
 }
 
 .gambito2 {
   text-align: center;
-  padding: 5px 200px 5px 0;
+  padding: 5px 270px 5px 0;
+  border-bottom: 2px solid rgba(13, 13, 73, 0.993);
 }
 
 .navright {

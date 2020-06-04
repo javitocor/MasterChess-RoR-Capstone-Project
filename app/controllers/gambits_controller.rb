@@ -8,6 +8,9 @@ class GambitsController < ApplicationController
     @gambit = Gambit.new
     @user = User.all    
     timeline_gambit
+    @a1 = not_friends.sample
+    @a2 = not_friends.sample
+    @a3 = not_friends.sample
   end
 
   # GET /gambits/1
@@ -81,5 +84,11 @@ class GambitsController < ApplicationController
 
     def friends_gambits(user)
       user if Following.where(follower_id: current_user.id, followed_id: user).exists? || user == current_user.id
+    end    
+
+    def not_friends
+      @not = User.all.select do |user| 
+        !Following.where(follower_id: current_user.id ,followed_id: user.id).exists?
+      end
     end
 end
