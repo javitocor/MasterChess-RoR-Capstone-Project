@@ -1,4 +1,5 @@
 class GambitsController < ApplicationController
+  require 'will_paginate/array'
   before_action :set_gambit, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
@@ -7,7 +8,7 @@ class GambitsController < ApplicationController
   def index
     @gambit = Gambit.new
     @user = User.all    
-    timeline_gambit
+    timeline_gambit.paginate(page: params[:page], per_page: 2)
     @a1 = not_friends.sample
     @a2 = not_friends.sample
     @a3 = not_friends.sample
