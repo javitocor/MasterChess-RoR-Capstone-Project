@@ -22,6 +22,12 @@
 
   html, body {
     height: 100%;
+    margin: 0; padding: 0; border: 0;
+  }
+
+  .navy {
+    position: sticky;top:0;bottom:0;
+    z-index: 100;
   }
 
  .sidebar1 {
@@ -31,7 +37,7 @@
     min-height: 100%;
     margin-bottom: -101%;
     padding-bottom: 101%; 
-    position: relative;
+    position: sticky;top:0;bottom:0;
 }
 .logo {
     max-height: 130px;
@@ -251,4 +257,30 @@ text-align:center;
   align-items : center;
   border: 1px solid grey;
   padding: 10px;
+}
+
+.pag {
+  width:100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.show_name {
+  font-weight: 800;
+  font-size: 17px;
+  text-transform: capitalize;
+}
+
+.show-full {
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: capitalize;
+}
+
+.dist {
+  margin-top: 9px;
+}
+
+.circle {
+  border-radius: 50%;
 }

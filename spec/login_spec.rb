@@ -17,7 +17,7 @@ RSpec.describe 'Login and signup features', type: :feature do
             fill_in 'user_email', with: user.email
             fill_in 'user_password', with: user.password
             click_button 'Log in'
-            click_link 'logout'
+            click_link 'Resign'
             expect(page).to have_content("Sign In")
         end
     end 

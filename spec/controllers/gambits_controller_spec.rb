@@ -36,14 +36,14 @@ RSpec.describe GambitsController, type: :feature do
             user2 = User.create(id: '2', username: 'Mick', fullname: 'Mick Jag', email: 'mick@example.com', password: 'password')
             visit user_path(user2)
             click_link 'Follow'
-            click_link 'logout'
+            click_link 'Resign'
             visit new_user_session_path
             fill_in 'user_email', with: user2.email
             fill_in 'user_password', with: user2.password
             click_button 'Log in'
             fill_in 'gambit_text', with: 'Gambit testing'
             click_button 'Gambit'
-            click_link 'logout'
+            click_link 'Resign'
             visit new_user_session_path
             fill_in 'user_email', with: user.email
             fill_in 'user_password', with: user.password
@@ -52,14 +52,14 @@ RSpec.describe GambitsController, type: :feature do
         end
         scenario 'Do not display gambits of users if are not followings' do 
             user2 = User.create(id: '2', username: 'Mick', fullname: 'Mick Jag', email: 'mick@example.com', password: 'password')
-            click_link 'logout'
+            click_link 'Resign'
             visit new_user_session_path
             fill_in 'user_email', with: user2.email
             fill_in 'user_password', with: user2.password
             click_button 'Log in'
             fill_in 'gambit_text', with: 'Gambit testing'
             click_button 'Gambit'
-            click_link 'logout'
+            click_link 'Resign'
             visit new_user_session_path
             fill_in 'user_email', with: user.email
             fill_in 'user_password', with: user.password
