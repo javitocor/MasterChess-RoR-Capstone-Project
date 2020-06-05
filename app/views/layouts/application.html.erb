@@ -7,26 +7,34 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<<<<<<< HEAD
+=======
+    
+>>>>>>> design
     <script src="https://kit.fontawesome.com/d4de0f4540.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
-     <% if notice.present? %>
-      <div class="notice">
-        <p> <%= notice %> </p>
-      </div>
-    <% end %>
-    <% if alert.present? %>
-      <div class="alert">
-        <p> <%= alert %> </p>
-      </div>
-    <% end %>
+    <div class="container-fluid">
+      <div class="row">
+          <%= render 'layouts/header'%>
+          <%= render 'layouts/navbar'%>
 
+<<<<<<< HEAD
     <%= yield %>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   
+=======
+          <div class="container-fluid col-md-10 col-sm-8">
+            <div class="row">
+              <%= yield %>
+            </div>
+          </div>
+      </div>
+    </div>
+>>>>>>> design
   </body>
 </html>

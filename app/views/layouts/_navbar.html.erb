@@ -1,0 +1,28 @@
+
+<nav class="col-md-10 col-sm-8 navbar navbar-light bg-primary mb-0">
+    <div class="navbar-brand"><%= link_to 'MasterChess', root_path %></div>
+    <div class="navbar-brand navright">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link navlink" href="#"><i class="fas fa-pen"></i></a>
+            <a class="nav-item nav-link navlink" href="#"><i class="far fa-envelope"></i></a>
+            <a class="nav-item nav-link navlink" href="#"><i class="fas fa-search"></i></a>
+            <%= link_to(edit_user_registration_path, class: 'nav-item nav-link navlink') do %>
+              <i class="fas fa-cog"> </i>
+            <% end %>
+            <% if current_user %>
+              <%= link_to 'logout', destroy_user_session_path, method: :delete, class:"nav-link" %>
+            <% end %>
+        </div>
+    </div>
+</nav>
+
+<% if notice.present? %>
+  <div class="notice">
+    <p> <%= notice %> </p>
+  </div>
+<% end %>
+<% if alert.present? %>
+  <div class="alert">
+    <p> <%= alert %> </p>
+  </div>
+<% end %>

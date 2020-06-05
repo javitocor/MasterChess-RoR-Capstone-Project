@@ -1,25 +1,97 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, "Homepage") %>
+<div class="container-fluid">
+  <div class="gambitbar mt-0 mb-2">
+    <h5 class="gambito" href="#">Gambits</h5>
+    <h5 class="gambito2">Who to Follow</h5>
+  </div>
+  <div class="col-md-8 bg-secondary">          
+          <div class="form-group bg-white">
+            <%= form_for(@gambit) do |form| %>
+              <%= form.label :Add_your_Gambit %>
+              <%= form.text_field :text, id: :gambit_text, class: 'form-control', placeholder: 'Compose your New Gambit' %>
+              <% if @gambit.errors.full_messages.any? %>
+                <p class="errors">
+                  <%= "Gambit could not be saved. #{@gambit.errors.full_messages.join('. ')}" %>
+                </p>
+              <% end %>
+              <br>
+              <%= form.submit 'Gambit', class: 'btn btn-primary btn-sm' %>
+            <% end %>
+          </div>
+          <br>
+          <h1 class="my-4">Recent Gambits</h1>
+          <h4>All the gambits of your MasterChess friends</h4>
 
-<h1>Gambits</h1>
+          <!-- Blog Post -->
+          <div class="list-group">
+              <%= render @timeline_gambits %>
+          </div>
+          
+          <!-- Pagination -->
+          <ul class="pagination justify-content-center mb-4">
+            
+          </ul>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        </div>
 
-  <tbody>
-    <% @gambits.each do |gambit| %>
-      <tr>
-        <td><%= link_to 'Show', gambit %></td>
-        <td><%= link_to 'Edit', edit_gambit_path(gambit) %></td>
-        <td><%= link_to 'Destroy', gambit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-3">
 
-<br>
+          <!-- Search Widget -->
+          <div class="card my-4">
+            <div class="card-body">
+              <div class="">
+                <ul class="list-unstyled mb-0">
+                    <li class="list-group-item">
+                      <div class="row d-flex justify-content-start border-bottom pb-2 mb-3">
+                        <div class="col-2 col-md-2 col-lg-3 p-0  pr-xs-2">
+                        <% if @a1.avatar.attached? %>
+                            <%= image_tag @a1.avatar, class:'rounded-circle card-img-top', size: "45x48" %>
+                          <% else %>
+                            <%= image_tag('avatar_default.jpg', class:'rounded-circle card-img-top', size: "45x48") %>
+                          <% end %>
+                        </div>
+                        <div class="col-10 col-md-10 col-lg-9 m-2">                  
+                          <p><%= link_to @a1.username, user_path(@a1), class:'text-decoration-none text-dark font-weight-bolder' %></p>
+                          <span class=" font-weight-bolder text-black-50"><%= @a1.fullname %></span>
+                        </div>              
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="row d-flex justify-content-start border-bottom pb-2 mb-3">
+                        <div class="col-2 col-md-2 col-lg-3 p-0  pr-xs-2">
+                        <% if @a2.avatar.attached? %>
+                            <%= image_tag @a2.avatar, class:'rounded-circle card-img-top', size: "45x48" %>
+                          <% else %>
+                            <%= image_tag('avatar_default.jpg', class:'rounded-circle card-img-top', size: "45x48") %>
+                          <% end %>
+                        </div>
+                        <div class="col-10 col-md-10 col-lg-9 m-2">                  
+                          <p><%= link_to @a2.username, user_path(@a2), class:'text-decoration-none text-dark font-weight-bolder' %></p>
+                          <span class=" font-weight-bolder text-black-50"><%= @a2.fullname %></span>
+                        </div>              
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="row d-flex justify-content-start border-bottom pb-2 mb-3">
+                        <div class="col-2 col-md-2 col-lg-3 p-0  pr-xs-2">
+                        <% if @a3.avatar.attached? %>
+                            <%= image_tag @a3.avatar, class:'rounded-circle card-img-top', size: "45x48" %>
+                          <% else %>
+                            <%= image_tag('avatar_default.jpg', class:'rounded-circle card-img-top', size: "45x48") %>
+                          <% end %>
+                        </div>
+                        <div class="col-10 col-md-10 col-lg-9 m-2">                  
+                          <p><%= link_to @a3.username, user_path(@a3), class:'text-decoration-none text-dark font-weight-bolder' %></p>
+                          <span class=" font-weight-bolder text-black-50"><%= @a3.fullname %></span>
+                        </div>              
+                      </div>
+                    </li>
+                  </ul>
+              </div>
+            </div>
+          </div> 
+  </div>
+  
+</div>
 
-<%= link_to 'New Gambit', new_gambit_path %>

@@ -5,7 +5,12 @@ class GambitsController < ApplicationController
   # GET /gambits
   # GET /gambits.json
   def index
-    @gambits = Gambit.all
+    @gambit = Gambit.new
+    @user = User.all    
+    timeline_gambit
+    @a1 = not_friends.sample
+    @a2 = not_friends.sample
+    @a3 = not_friends.sample
   end
 
   # GET /gambits/1
@@ -28,7 +33,7 @@ class GambitsController < ApplicationController
     @gambit = current_user.gambits.new(gambit_params)
 
     if @gambit.save
-      redirect_to posts_path, notice: 'Gambit was successfully created.'
+      redirect_to root_path, notice: 'Gambit was successfully created.'
     else
       timeline_posts
       render :index, alert: 'Gambit was not created.'
@@ -69,5 +74,21 @@ class GambitsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def gambit_params
       params.require(:gambit).permit(:text)
+    end
+
+    def timeline_gambit 
+      @timeline_gambits = Gambit.all.ordered_by_most_recent.includes(:user).select do |gambit|
+        gambit.user_id == friends_gambits(gambit.user_id)
+      end
+    end
+
+    def friends_gambits(user)
+      user if Following.where(follower_id: current_user.id, followed_id: user).exists? || user == current_user.id
+    end    
+
+    def not_friends
+      @not = User.all.select do |user| 
+        !Following.where(follower_id: current_user.id ,followed_id: user.id).exists?
+      end
     end
 end

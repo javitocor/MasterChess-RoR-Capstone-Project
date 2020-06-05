@@ -1,4 +1,130 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, "#{@user.username}") %>
+<div class="container-fluid">
+  <div class="col-md-8 bg-secondary"> 
+        <div>
+          <% if @user.cover_photo.attached? %>
+                  <%= image_tag @user.cover_photo, class:'', size: "" %>
+            <% else %>
+                  <%= image_tag('cover_default.jpg', class:'', size: "695x300") %>
+          <% end %>
+        </div> 
+        <br>        
+          <div class="form-group bg-white">
+            <form>
+                <div class="form-group">
+                    <label for="comment">Gambit to <%= @user.username %>:</label>
+                    <textarea class="form-control" rows="2" id="comment"></textarea>
+                </div>
+                <button class="btn btn-primary my-2 my-sm-0" type="submit">Gambit</button>
+            </form>
+          </div>
+          <h3 class="my-4">Your Recent Gambits</h3>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+          <!-- Blog Post -->
+          <div class="list-group">
+              <%= render @gambits %>
+          </div>
+
+          <!-- Pagination -->
+          <ul class="pagination justify-content-center mb-4">
+          </ul>
+
+        </div>
+
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-3">
+            <div>
+              <div class="card text-center">
+                <% if @user.avatar.attached? %>
+                  <%= image_tag @user.avatar, class:'rounded-circle card-img-top', size: "100x100" %>
+                <% else %>
+                  <%= image_tag('avatar_default.jpg', class:'rounded-circle card-img-top', size: "100x100") %>
+                <% end %>
+                <div class="card-body">
+                  <p class="card-title"><%= @user.username %></p>
+                  <p class="card-text"><%= @user.fullname %></p>
+                  <% if current_user != @user %>
+                    <%= link_to follow_or_unfollow_btn(@user) %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="info-user">
+                <div class="user-info">
+                  <div><%= @user.gambits.count %></div>
+                  <div>Gambits</div>
+                </div>
+                <div class="user-info">
+                  <div><%= @user.friends.count %></div>
+                  <div>Following</div>
+                </div>
+                <div class="user-info">
+                  <div><%= @user.followers.count %></div>
+                  <div>Followers</div>
+                </div>
+              </div>
+            </div>
+          <!-- Search Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">FOLLOWED BY:</h5>
+            <div class="card-body">
+              <div class="">
+              <% if @user.followers.any? %>
+                <ul class="list-unstyled mb-0">
+                    <li class="list-group-item">
+                      <div class="row d-flex justify-content-start border-bottom pb-2 mb-3">
+                        <div class="col-2 col-md-2 col-lg-3 p-0  pr-xs-2">
+                        <% if @fol1.avatar.attached? %>
+                            <%= image_tag @fol1.avatar, class:'rounded-circle card-img-top', size: "45x48" %>
+                          <% else %>
+                            <%= image_tag('avatar_default.jpg', class:'rounded-circle card-img-top', size: "45x48") %>
+                          <% end %>
+                        </div>
+                        <div class="col-10 col-md-10 col-lg-9 m-2">                  
+                          <p><%= link_to @fol1.username, user_path(@fol1), class:'text-decoration-none text-dark font-weight-bolder' %></p>
+                          <span class=" font-weight-bolder text-black-50"><%= @fol1.fullname %></span>
+                        </div>              
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="row d-flex justify-content-start border-bottom pb-2 mb-3">
+                        <div class="col-2 col-md-2 col-lg-3 p-0  pr-xs-2">
+                        <% if @fol2.avatar.attached? %>
+                            <%= image_tag @fol1.avatar, class:'rounded-circle card-img-top', size: "45x48" %>
+                          <% else %>
+                            <%= image_tag('avatar_default.jpg', class:'rounded-circle card-img-top', size: "45x48") %>
+                          <% end %>
+                        </div>
+                        <div class="col-10 col-md-10 col-lg-9 m-2">                  
+                          <p><%= link_to @fol2.username, user_path(@fol2), class:'text-decoration-none text-dark font-weight-bolder' %></p>
+                          <span class=" font-weight-bolder text-black-50"><%= @fol2.fullname %></span>
+                        </div>              
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="row d-flex justify-content-start border-bottom pb-2 mb-3">
+                        <div class="col-2 col-md-2 col-lg-3 p-0  pr-xs-2">
+                        <% if @fol1.avatar.attached? %>
+                            <%= image_tag @fol3.avatar, class:'rounded-circle card-img-top', size: "45x48" %>
+                          <% else %>
+                            <%= image_tag('avatar_default.jpg', class:'rounded-circle card-img-top', size: "45x48") %>
+                          <% end %>
+                        </div>
+                        <div class="col-10 col-md-10 col-lg-9 m-2">                  
+                          <p><%= link_to @fol3.username, user_path(@fol3), class:'text-decoration-none text-dark font-weight-bolder' %></p>
+                          <span class=" font-weight-bolder text-black-50"><%= @fol3.fullname %></span>
+                        </div>              
+                      </div>
+                    </li>
+                  </ul>
+                  <% end %>
+              </div>
+            </div>
+          </div> 
+  </div>
+</div>
+
+
+
+
+
+

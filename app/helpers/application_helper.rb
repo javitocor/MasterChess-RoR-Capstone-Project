@@ -19,10 +19,10 @@ module ApplicationHelper
 
     def follow_or_unfollow_btn(user)
       follow = Following.find_by(followed: user, follower: current_user)
-      if like
-        link_to('Unfollow!', user_following_path(id: follow.id, followed_id: user.id), method: :delete)
+      if follow
+        link_to('Unfollow!', user_following_path(id: follow.id, followed_id: user.id, user_id: user.id ), method: :delete)
       else
-        link_to('Follow!', user_followings_path(followed_id: user.id), method: :post)
+        link_to('Follow!', user_followings_path(follower_id: current_user.id, followed_id: user.id, user_id: current_user.id), method: :post)
       end
     end
 end

@@ -1,0 +1,42 @@
+<div class="col-md-2 col-sm-4 sidebar1">
+    <div class="logo">
+        <% if current_user %>
+            <div class="aside">
+                <div class="aside-card">
+                    <div class="profile">
+                        <% if current_user.avatar.attached? %>
+                            <%= image_tag current_user.avatar, class:'img-fluid card-img' %>
+                        <% else %>
+                            <%= image_tag('avatar_default.jpg', class:'img-fluid card-img') %>
+                        <% end %>
+                    </div>
+                    <div class="username text-center">
+                        <p><%= link_to current_user.username, user_path(current_user) %></p>
+                    </div>
+                </div>
+                <div class="follow">
+                    <div class="follow-bottom">
+                        <div><%= current_user.friends.count %></div>
+                        <div>Following</div> 
+                    </div>
+                    <div class="follow-bottom">
+                        <div><%= current_user.followers.count %></div>
+                        <div>Followers</div>
+                    </div>
+                </div>
+            </div>
+        <%else%>
+            <img src="avatar_default.jpg" class="img-responsive center-block" alt="Logo">
+        <% end %>
+    </div>
+    <br>
+    <div class="left-navigation">
+        <ul class="list">
+            <li><i class="fas fa-home"></i> <%= link_to 'Home', root_path %></li>
+            <li><i class="fas fa-at"></i> Connect</li>
+            <li>&num; Discover</li>
+            <li><i class="fas fa-user"></i> <%= link_to 'People', users_path %></li>
+            <li><i class="fas fa-signal"></i> Statics</li>
+        </ul>
+    </div>
+</div>

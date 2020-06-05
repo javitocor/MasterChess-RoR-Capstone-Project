@@ -2,7 +2,7 @@ class FollowingsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @follow = current_user.followings.new(followed_id: params[:followed_id], follower_id: current_user)
+    @follow = Following.new(followed_id: params[:followed_id], follower_id: params[:follower_id])
 
     if @follow.save
       redirect_back(fallback_location: root_path, notice: 'You follow this user.')
@@ -12,7 +12,7 @@ class FollowingsController < ApplicationController
   end
 
   def destroy
-    follow = Like.find_by(id: params[:id], follower_id: current_user, followed_id: params[:followed_id])
+    follow = Following.find_by(id: params[:id], follower_id: current_user, followed_id: params[:followed_id])
     if follow
       follow.destroy
       redirect_back(fallback_location: root_path, notice: 'You unfollow this user.')
