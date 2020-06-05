@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'capybara/rspec'
 
 # Specs in this file have access to a helper object that includes
 # the ApplicationHelper. For example:
@@ -11,5 +12,12 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe ApplicationHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context 'Testing title' do 
+    it "returns the default title" do
+      expect(helper.full_title).to eq("Masterchess")
+    end
+    it "returns the correct title" do
+      expect(helper.full_title("Home")).to eq("Home | Masterchess")
+    end
+  end
 end
