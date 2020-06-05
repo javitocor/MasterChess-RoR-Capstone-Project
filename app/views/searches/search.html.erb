@@ -1,0 +1,5 @@
+<% provide(:title, "Search") %>
+<h3>Search Result</h3>  
+    <% @results.each do |result| %>  
+       <%= link_to result.text, gambit_path(result) %>  | <%= link_to result.user.username %> <br>  
+    <% end %>
