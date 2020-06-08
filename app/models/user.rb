@@ -18,6 +18,6 @@ class User < ApplicationRecord
   has_one_attached :cover_photo
 
   def random
-    self.followers.sample.followed
+    self.followers.sample.follower
   end
 end
