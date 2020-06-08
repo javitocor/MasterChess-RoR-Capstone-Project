@@ -16,13 +16,20 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+
   .left-navigation {
     padding-top: 50px;
+  }
+  @font-face {
+    font-family: "GT-Walsheim";
+    src: url(asset-path('GT-Walsheim-Pro-Black-Oblique-Trial.otf')) format("opentype");
   }
 
   html, body {
     height: 100%;
     margin: 0; padding: 0; border: 0;
+    font-family: "GT-Walsheim", Helvetica, Arial, sans-serif;
   }
 
   .navy {
@@ -118,7 +125,7 @@ text-align:center;
 }
 
 .navright {
-  margin-left: 500px;
+  margin-left: 400px;
 }
 
 .navlink {
