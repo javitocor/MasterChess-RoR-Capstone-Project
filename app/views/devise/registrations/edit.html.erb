@@ -57,7 +57,7 @@
                                                                       input_html: { autocomplete: "current-password" }, class:"form-control" %>
                             </div>   
                             <% if resource.avatar.attached? %>
-                              <%= image_tag resource.avatar, class:'rounded-circle' %> <br>
+                              <%= image_tag resource.avatar, class:'rounded-circle', size: "100x100" %> <br>
                             <% else %>
                               <%= image_tag('avatar_default.jpg', size: "100x100") %> <br>
                             <% end %>
@@ -69,7 +69,7 @@
                             </div>
                             <br>  
                             <% if resource.cover_photo.attached? %>
-                              <%= image_tag resource.cover_photo, class:'rounded-circle' %> <br>
+                              <%= image_tag resource.cover_photo, class:'rounded-circle', size: "100x100" %> <br>
                             <% else %>
                               <%= image_tag('cover_default.jpg', size: "100x100") %> <br>
                             <% end %>
