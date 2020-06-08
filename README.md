@@ -2,6 +2,8 @@
 
 > This project it was built on top of my knowledge of RoR.
 
+![screenshot](/app/assets/images/screenshot1.png) ![screenshot](/app/assets/images/screenshot2.png)
+
 ## What it does
 
 Its a social media app similar to Twitter but focus in chess players.
@@ -81,7 +83,7 @@ Create users with:
 
 ``` bash
    rails db:seed
-   Login with email: 'example-{add a number between 1-16}@microverse.org', and password:'password'
+   Login with email: 'example-{add a number between 1-50}@microverse.org', and password:'password'
 ```
 
 ### Usage
