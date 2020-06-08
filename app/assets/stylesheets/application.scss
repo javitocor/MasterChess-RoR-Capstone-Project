@@ -1,0 +1,297 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+
+  .left-navigation {
+    padding-top: 50px;
+  }
+  @font-face {
+    font-family: "GT-Walsheim";
+    src: url(asset-path('GT-Walsheim-Pro-Black-Oblique-Trial.otf')) format("opentype");
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0; padding: 0; border: 0;
+    font-family: "GT-Walsheim", Helvetica, Arial, sans-serif;
+  }
+
+  .navy {
+    position: sticky;top:0;bottom:0;
+    z-index: 100;
+  }
+  .fa-chess-queen {
+    color: rgb(121, 176, 218);
+  }
+  
+
+ .sidebar1 {
+    background: rgba(13, 13, 73, 0.993);
+    padding: 0px;
+    height:100%;
+    min-height: 100%;
+    margin-bottom: -101%;
+    padding-bottom: 101%; 
+    position: sticky;top:0;bottom:0;
+}
+.logo {
+    max-height: 130px;
+}
+.logo>img {
+    margin-top: 30px;
+    padding: 3px;
+    border: 3px solid white;
+    border-radius: 100%;
+}
+.list {
+    color: #fff;
+    list-style: none;
+    padding-left: 0px;
+}
+
+.list> li, h5 {
+    padding: 10px 0px 10px 40px;
+}
+.list>li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-left: 5px solid white;
+    color: white;
+    font-weight: bolder;
+    padding-left: 35px;    
+    cursor: pointer;
+}.main-content{
+text-align:center;
+}
+.notice,
+.alert {
+  margin-bottom: 8px;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  padding: 5px;
+  color: dimgrey;
+  font-size: 14px;
+}
+
+.notice {
+  background-color: #44c212;
+}
+
+.alert {
+  background-color: #e23c17;
+}
+
+.errors {
+  font-size: 10px;
+  color: red;
+}
+
+.gambitbar {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  height :50px;
+  margin-bottom: 20px;
+}
+
+.gambito {
+  text-align: center;
+  padding: 5px 200px 5px 0;
+  border-bottom: 2px solid rgba(13, 13, 73, 0.993);
+}
+
+.gambito2 {
+  text-align: center;
+  padding: 5px 270px 5px 0;
+  border-bottom: 2px solid rgba(13, 13, 73, 0.993);
+}
+
+.navright {
+  margin-left: 475px;
+}
+
+.navlink {
+  padding-left:30px;
+  padding-right:30px;
+}
+
+.likediv {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.gambitext {
+  margin: 5px 0 5px 0;
+}
+
+.blog-comment::before,
+.blog-comment::after,
+.blog-comment-form::before,
+.blog-comment-form::after{
+    content: "";
+	display: table;
+	clear: both;
+}
+
+.blog-comment ul{
+	list-style-type: none;
+	padding: 0;
+}
+
+.blog-comment img{
+	opacity: 1;
+	filter: Alpha(opacity=100);
+	-webkit-border-radius: 4px;
+	   -moz-border-radius: 4px;
+	  	 -o-border-radius: 4px;
+			border-radius: 4px;
+}
+
+.blog-comment img.avatar {
+	position: relative;
+	float: left;
+	margin-left: 0;
+	margin-top: 0;
+	width: 65px;
+	height: 65px;
+}
+
+.blog-comment .post-comments{
+	border: 1px solid #eee;
+    margin-bottom: 20px;
+    margin-left: 85px;
+	margin-right: 0px;
+    padding: 10px 20px;
+    position: relative;
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+       	 -o-border-radius: 4px;
+    		border-radius: 4px;
+	background: #fff;
+	color: #6b6e80;
+	position: relative;
+}
+
+.blog-comment .meta {
+	font-size: 13px;
+	color: #aaaaaa;
+	padding-bottom: 8px;
+	margin-bottom: 10px !important;
+	border-bottom: 1px solid #eee;
+}
+
+.blog-comment ul.comments ul{
+	list-style-type: none;
+	padding: 0;
+	margin-left: 85px;
+}
+
+.blog-comment a {
+  padding-left: 10px;
+}
+
+.commpad {
+  padding: 0 0 0 50px; 
+}
+
+.aside-card {
+    width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items : center;
+  padding: 20px 10px;
+}
+
+.profile img {
+    width: 70px;
+    height: 55px;
+}
+
+.username p {
+  padding-right: 5px;
+}
+
+.aside {
+  background-color: rgba(4, 4, 27, 0.993);
+}
+
+.follow {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items : center;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.follow-bottom {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items : center;
+}
+
+.info-user {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items : center;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.user-info {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items : center;
+  border: 1px solid grey;
+  padding: 10px;
+}
+
+.pag {
+  width:100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.show_name {
+  font-weight: 800;
+  font-size: 17px;
+  text-transform: capitalize;
+}
+
+.show-full {
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: capitalize;
+}
+
+.dist {
+  margin-top: 9px;
+}
+
+.circle {
+  border-radius: 50%;
+}

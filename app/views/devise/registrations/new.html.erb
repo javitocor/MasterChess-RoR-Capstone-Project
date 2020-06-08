@@ -1,0 +1,65 @@
+<% provide(:title, "Sign Up") %>
+
+<div class="container">    
+        <div id="loginbox" class="mainbox col-md-6 col-sm-8 col-sm-offset-2">                    
+            <div style="margin-top:30px"class="panel panel-info" >
+                    <div class="text-center bg-primary">
+                        <div style="font-weight:700" class="panel-title">Sign Up</div>                        
+                    </div>     
+
+                    <div style="padding-top:30px" class="panel-body bg-white">
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>                          
+                        
+                        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), class:"form-horizontal") do |f| %>           
+                            <%= f.error_notification %>
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <%= f.input :username,
+                                                              required: true,
+                                                              autofocus: true,
+                                                              input_html: { autocomplete: "username" }, class:"form-control" %>
+                            </div>  
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <%= f.input :fullname,
+                                                              required: true,
+                                                              autofocus: true,
+                                                              input_html: { autocomplete: "username" }, class:"form-control" %>
+                            </div>  
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <%= f.input :email,
+                                                          required: false,
+                                                          autofocus: true,
+                                                          input_html: { autocomplete: "email" }, class:"form-control" %>
+                            </div>                                
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <%= f.input :password,
+                                                            required: false,
+                                                            input_html: { autocomplete: "current-password" }, class:"form-control" %>
+                            </div>  
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <%= f.input :password_confirmation,
+                                                                          required: true,
+                                                                          input_html: { autocomplete: "new-password" }, class:"form-control" %>
+                            </div>                                    
+                            <div style="margin-top:10px" class="form-group">
+                                    <!-- Button -->
+
+                                    <div class="col-sm-12 controls text-center w-75">
+                                      <%= f.button :submit, "Sign Up", class:"btn-lg btn-primary " %>
+                                    </div>
+                            </div>
+                        <% end %>                 
+                        </div>  
+                        <div class="bg-white text-center"><%= render "devise/shared/links" %></div>
+                                           
+                    </div> 
+                    </div>
+                    </div>
+                  </div>
+        </div> 
+</div>

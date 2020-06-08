@@ -1,0 +1,104 @@
+<% provide(:title, "Update Info") %>
+<div class="container-fluid">    
+        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+            <div style="margin-top:30px"class="panel panel-info" >
+                    <div class="text-center bg-primary">
+                        <div style="font-weight:700" class="panel-title">Edit <%= resource_name.to_s.humanize %></div>                        
+                    </div>     
+
+                    <div style="padding-top:30px" class="panel-body bg-white">
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>                          
+                        
+                        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, class:"form-horizontal") do |f| %>          
+                            <%= f.error_notification %>
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <%= f.input :username,
+                                                              required: true,
+                                                              autofocus: true,
+                                                              input_html: { autocomplete: "username" }, class:"form-control" %>
+                            </div>  
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <%= f.input :fullname,
+                                                              required: true,
+                                                              autofocus: true,
+                                                              input_html: { autocomplete: "username" }, class:"form-control" %>
+                            </div>  
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <%= f.input :email,
+                                                          required: false,
+                                                          autofocus: true,
+                                                          input_html: { autocomplete: "email" }, class:"form-control" %>
+                            </div> 
+                            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                              <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+                            <% end %>                               
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <%= f.input :password,
+                                                            hint: "leave it blank if you don't want to change it",
+                                                            required: false,
+                                                            input_html: { autocomplete: "current-password" }, class:"form-control" %>
+                            </div>  
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <%= f.input :password_confirmation,
+                                                                          required: true,
+                                                                          input_html: { autocomplete: "new-password" }, class:"form-control" %>
+                            </div>
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <%= f.input :current_password,
+                                                                      hint: "we need your current password to confirm your changes",
+                                                                      required: true,
+                                                                      input_html: { autocomplete: "current-password" }, class:"form-control" %>
+                            </div>   
+                            <% if resource.avatar.attached? %>
+                              <%= image_tag resource.avatar, class:'rounded-circle', size: "100x100" %> <br>
+                            <% else %>
+                              <%= image_tag('avatar_default.jpg', size: "100x100") %> <br>
+                            <% end %>
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                  <span class="btn btn-small btn-primary btn-inverse" onclick="$(this).parent().find('input[type=file]').click();">Add New Avatar</span>
+                                  <%= f.file_field :avatar, onchange: "$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\\\|/]/).pop());", style: "display: none;" %>
+                                </span>
+                            </div>
+                            <br>  
+                            <% if resource.cover_photo.attached? %>
+                              <%= image_tag resource.cover_photo, class:'rounded-circle', size: "100x100" %> <br>
+                            <% else %>
+                              <%= image_tag('cover_default.jpg', size: "100x100") %> <br>
+                            <% end %>
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                  <span class="btn btn-small btn-primary btn-inverse" onclick="$(this).parent().find('input[type=file]').click();">Add New Cover</span>
+                                  <%= f.file_field :cover_photo, onchange: "$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\\\|/]/).pop());", style: "display: none;" %>
+                                </span>
+                            </div>                                  
+                            <div style="margin-top:10px" class="form-group">
+                                    <!-- Button -->
+
+                                    <div class="col-sm-12 controls text-center w-75">
+                                      <%= f.button :submit, "Update", class:"btn-lg btn-primary " %>
+                                    </div>
+                            </div>
+                        <% end %>                 
+                        </div>  
+                        <div class="bg-white text-center">
+                          <h3>Cancel my account</h3>
+
+                          <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+                          <%= link_to "Back", :back %>
+                        </div>
+                                           
+                    </div> 
+                    </div>
+                    </div>
+                  </div>
+        </div> 
+</div>

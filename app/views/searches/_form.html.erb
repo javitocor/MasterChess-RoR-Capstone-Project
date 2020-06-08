@@ -1,0 +1,7 @@
+
+<%= form_tag search_path, :method => 'get', class: 'input-group'  do %>
+    <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search for...' %>
+    <span class="input-group-btn">
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    </span>
+  <% end %>
