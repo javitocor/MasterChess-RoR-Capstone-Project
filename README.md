@@ -23,6 +23,7 @@ Its a social media app similar to Twitter but focus in chess players.
 - You will be able to see “Timeline” page with gambits (with number of likes and comments) written by you and all the users yu are following (the most recent posts on the top).
 - Timeline page is the root page of the app.
 - You can add your profile photo and your cover photo.
+- You can search a user or a keyword inside a gambit.
 
 ## Built With
 
