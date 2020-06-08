@@ -37,7 +37,7 @@ Its a social media app similar to Twitter but focus in chess players.
 - Devise (for user authentication)
 - Simple_form
 - Omniauth
-- Omniauth - Twitter
+- Omniauth - Facebook
 - Faker
 - Will Paginate
 - Gems used for testing:
@@ -52,7 +52,7 @@ Its a social media app similar to Twitter but focus in chess players.
 
 ## Live Demo
 
-[Live Demo Link]()
+[Live Demo Link](https://murmuring-crag-15929.herokuapp.com/)
 
 ## Getting Started
 
