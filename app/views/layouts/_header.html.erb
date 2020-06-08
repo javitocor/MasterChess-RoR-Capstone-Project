@@ -33,10 +33,10 @@
     <div class="left-navigation">
         <ul class="list">
             <li><i class="fas fa-home"></i> <%= link_to 'Home', root_path %></li>
-            <li><i class="fas fa-chess"></i></i> Learn to Play Channel</li>
-            <li><i class="fas fa-chess-knight"></i> Tactics Channel</li>
+            <li><i class="fas fa-chess"></i></i> <%= link_to 'Learn to Play Channel', static_pages_learn_path %></li>
+            <li><i class="fas fa-chess-knight"></i> <%= link_to 'Tactics Channel', static_pages_tactics_path %></li>
             <li><i class="fas fa-user"></i> <%= link_to 'Players', users_path %></li>
-            <li><i class="fas fa-chess-board"></i> Historical Games</li>
+            <li><i class="fas fa-chess-board"></i> <%= link_to 'Historical Games', static_pages_historical_path %></li>
         </ul>
     </div>
 </div>

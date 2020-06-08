@@ -7,7 +7,7 @@
                 <ul class="list-unstyled mb-0">
                     <% @results.each do |result| %>
                     <li class="list-group-item">
-                      <%= result.text %>  | <%= link_to result.user.username %>
+                      <%= result.text %>  | <%= link_to result.user.username, user_path(result.user.id) %>
                     </li>
                     <%end %> 
                   </ul>                  

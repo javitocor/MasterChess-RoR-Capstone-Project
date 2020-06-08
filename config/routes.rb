@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  get 'static_pages/learn'
+  get 'static_pages/tactics'
+  get 'static_pages/historical'
   get 'followings/create'
   get 'followings/destroy'
   root 'gambits#index'

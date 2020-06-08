@@ -20,7 +20,7 @@
                           <span class=" font-weight-bolder text-black-50"><%= user.fullname %></span>                          
                         </div>
                         <div class="col-3 col-md-3 col-lg-3 m-2">
-                          <% if current_user != @user %>
+                          <% if current_user != user %>
                     <button type="button" class="btn btn-primary"><%= follow_or_unfollow_btn(user) %></button>                    
                   <% end %></div>               
                       </div>
