@@ -38,6 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'figaro'
 gem 'will_paginate', '~> 3.3'
 gem 'bootstrap-will_paginate', '~> 1.0'
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
