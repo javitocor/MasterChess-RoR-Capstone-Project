@@ -14,70 +14,86 @@
  *= require_self
  */
 
- @import "bootstrap-sprockets";
- @import "bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
-
-  .left-navigation {
-    padding-top: 50px;
-  }
-  @font-face {
-    font-family: "GT-Walsheim";
-    src: url(asset-path('GT-Walsheim-Pro-Black-Oblique-Trial.otf')) format("opentype");
-  }
-
-  html, body {
-    height: 100%;
-    margin: 0; padding: 0; border: 0;
-    font-family: "GT-Walsheim", Helvetica, Arial, sans-serif;
-  }
-
-  .navy {
-    position: sticky;top:0;bottom:0;
-    z-index: 100;
-  }
-  .fa-chess-queen {
-    color: rgb(121, 176, 218);
-  }
-  
-
- .sidebar1 {
-    background: rgba(13, 13, 73, 0.993);
-    padding: 0px;
-    height:100%;
-    min-height: 100%;
-    margin-bottom: -101%;
-    padding-bottom: 101%; 
-    position: sticky;top:0;bottom:0;
+.left-navigation {
+  padding-top: 50px;
 }
+
+@font-face {
+  font-family: "GT-Walsheim";
+  src: url(asset-path('GT-Walsheim-Pro-Black-Oblique-Trial.otf')) format("opentype");
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "GT-Walsheim", Helvetica, Arial, sans-serif;
+}
+
+.navy {
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+.fa-chess-queen {
+  color: rgb(121, 176, 218);
+}
+
+
+.sidebar1 {
+  background: rgba(13, 13, 73, 0.993);
+  padding: 0;
+  height: 100%;
+  min-height: 100%;
+  margin-bottom: -101%;
+  padding-bottom: 101%;
+  position: sticky;
+  top: 0;
+  bottom: 0;
+}
+
 .logo {
-    max-height: 130px;
-}
-.logo>img {
-    margin-top: 30px;
-    padding: 3px;
-    border: 3px solid white;
-    border-radius: 100%;
-}
-.list {
-    color: #fff;
-    list-style: none;
-    padding-left: 0px;
+  max-height: 130px;
 }
 
-.list> li, h5 {
-    padding: 10px 0px 10px 40px;
+.logo > img {
+  margin-top: 30px;
+  padding: 3px;
+  border: 3px solid white;
+  border-radius: 100%;
 }
-.list>li:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-left: 5px solid white;
-    color: white;
-    font-weight: bolder;
-    padding-left: 35px;    
-    cursor: pointer;
-}.main-content{
-text-align:center;
+
+.list {
+  color: #fff;
+  list-style: none;
+  padding-left: 0;
 }
+
+.list > li,
+h5 {
+  padding: 10px 0 10px 40px;
+}
+
+.list > li:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-left: 5px solid white;
+  color: white;
+  font-weight: bolder;
+  padding-left: 35px;
+  cursor: pointer;
+}
+
+.main-content {
+  text-align: center;
+}
+
 .notice,
 .alert {
   margin-bottom: 8px;
@@ -108,7 +124,7 @@ text-align:center;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  height :50px;
+  height: 50px;
   margin-bottom: 20px;
 }
 
@@ -129,8 +145,8 @@ text-align:center;
 }
 
 .navlink {
-  padding-left:30px;
-  padding-right:30px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .likediv {
@@ -147,63 +163,63 @@ text-align:center;
 .blog-comment::before,
 .blog-comment::after,
 .blog-comment-form::before,
-.blog-comment-form::after{
-    content: "";
-	display: table;
-	clear: both;
+.blog-comment-form::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-.blog-comment ul{
-	list-style-type: none;
-	padding: 0;
+.blog-comment ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-.blog-comment img{
-	opacity: 1;
-	filter: Alpha(opacity=100);
-	-webkit-border-radius: 4px;
-	   -moz-border-radius: 4px;
-	  	 -o-border-radius: 4px;
-			border-radius: 4px;
+.blog-comment img {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
 }
 
 .blog-comment img.avatar {
-	position: relative;
-	float: left;
-	margin-left: 0;
-	margin-top: 0;
-	width: 65px;
-	height: 65px;
+  position: relative;
+  float: left;
+  margin-left: 0;
+  margin-top: 0;
+  width: 65px;
+  height: 65px;
 }
 
-.blog-comment .post-comments{
-	border: 1px solid #eee;
-    margin-bottom: 20px;
-    margin-left: 85px;
-	margin-right: 0px;
-    padding: 10px 20px;
-    position: relative;
-    -webkit-border-radius: 4px;
-       -moz-border-radius: 4px;
-       	 -o-border-radius: 4px;
-    		border-radius: 4px;
-	background: #fff;
-	color: #6b6e80;
-	position: relative;
+.blog-comment .post-comments {
+  border: 1px solid #eee;
+  margin-bottom: 20px;
+  margin-left: 85px;
+  margin-right: 0;
+  padding: 10px 20px;
+  position: relative;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  background: #fff;
+  color: #6b6e80;
+  position: relative;
 }
 
 .blog-comment .meta {
-	font-size: 13px;
-	color: #aaaaaa;
-	padding-bottom: 8px;
-	margin-bottom: 10px !important;
-	border-bottom: 1px solid #eee;
+  font-size: 13px;
+  color: #aaa;
+  padding-bottom: 8px;
+  margin-bottom: 10px !important;
+  border-bottom: 1px solid #eee;
 }
 
-.blog-comment ul.comments ul{
-	list-style-type: none;
-	padding: 0;
-	margin-left: 85px;
+.blog-comment ul.comments ul {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 85px;
 }
 
 .blog-comment a {
@@ -211,21 +227,21 @@ text-align:center;
 }
 
 .commpad {
-  padding: 0 0 0 50px; 
+  padding: 0 0 0 50px;
 }
 
 .aside-card {
-    width: 100%;
+  width: 100%;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
-  align-items : center;
+  align-items: center;
   padding: 20px 10px;
 }
 
 .profile img {
-    width: 100px;
-    height: 70px;
+  width: 100px;
+  height: 70px;
 }
 
 .username p {
@@ -234,15 +250,15 @@ text-align:center;
 }
 
 .aside {
-  background: rgba(4,4,27, 0.993);
-background: linear-gradient(18deg, rgba(4,4,27,0.93) 24%, rgba(13,13,73,0.93) 90%);
+  background: rgba(4, 4, 27, 0.993);
+  background: linear-gradient(18deg, rgba(4, 4, 27, 0.93) 24%, rgba(13, 13, 73, 0.93) 90%);
 }
 
 .follow {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
-  align-items : center;
+  align-items: center;
   padding-bottom: 20px;
   padding-top: 20px;
 }
@@ -251,14 +267,14 @@ background: linear-gradient(18deg, rgba(4,4,27,0.93) 24%, rgba(13,13,73,0.93) 90
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
-  align-items : center;
+  align-items: center;
 }
 
 .info-user {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
-  align-items : center;
+  align-items: center;
   padding-bottom: 20px;
   padding-top: 20px;
 }
@@ -267,13 +283,13 @@ background: linear-gradient(18deg, rgba(4,4,27,0.93) 24%, rgba(13,13,73,0.93) 90
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
-  align-items : center;
+  align-items: center;
   border: 1px solid grey;
   padding: 10px;
 }
 
 .pag {
-  width:100%;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
 }
