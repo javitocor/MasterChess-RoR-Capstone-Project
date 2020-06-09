@@ -10,9 +10,7 @@ class GambitsController < ApplicationController
     @gambit = Gambit.new
     @user = User.all
     timeline_gambit.paginate(page: params[:page], per_page: 2)
-    @a1 = not_friends.sample
-    @a2 = not_friends.sample
-    @a3 = not_friends.sample
+    @to_follow = not_friends.sample(3)
   end
 
   # GET /gambits/1
@@ -88,7 +86,7 @@ class GambitsController < ApplicationController
 
   def not_friends
     @not = User.all.select do |user|
-      !Following.where(follower_id: current_user.id, followed_id: user.id).exists?
+      !Following.where(follower_id: current_user.id, followed_id: user.id).exists? 
     end
   end
 end
