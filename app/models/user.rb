@@ -28,4 +28,8 @@ class User < ApplicationRecord
   def self.create_from_omniauth(params)
     self.send(params.provider,params)
   end
+
+  def email_required?
+    false
+ end
 end
