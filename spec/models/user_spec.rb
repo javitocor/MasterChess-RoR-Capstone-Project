@@ -17,8 +17,8 @@ RSpec.describe User, type: :model do
   end
   context 'Testing attachments for users' do
     user = User.create!(username: 'Peter', fullname: 'Peter Grif', email: 'peter@example.com', password: 'password', password_confirmation: 'password')
-    it { expect(user.avatar).not_to be_attached }
-    it { expect(user.cover_photo).not_to be_attached }
+    it { expect(user.avatar).to be_attached }
+    it { expect(user.cover_photo).to be_attached }
   end
 end
 # rubocop:enable  Layout/LineLength
