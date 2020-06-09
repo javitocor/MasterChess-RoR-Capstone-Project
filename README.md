@@ -54,6 +54,10 @@ Its a social media app similar to Twitter but focus in chess players.
 
 [Live Demo Link](https://murmuring-crag-15929.herokuapp.com/)
 
+## Video Presentation
+
+[Video Presentation](https://www.loom.com/share/1b1522f11ff64b1d9da92c4ec73b3c38)
+
 ## Getting Started
 
 To get a local copy up, clone it and running follow these simple example steps.
