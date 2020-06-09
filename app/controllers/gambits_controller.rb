@@ -86,7 +86,7 @@ class GambitsController < ApplicationController
 
   def not_friends
     @not = User.all.select do |user|
-      !Following.where(follower_id: current_user.id, followed_id: user.id).exists? 
+      !Following.where(follower_id: current_user.id, followed_id: user.id).exists? && user != current_user
     end
   end
 end

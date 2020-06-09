@@ -20,7 +20,7 @@ class User < ApplicationRecord
   has_one_attached :cover_photo
 
   def random
-    followers.sample.follower
+    followers.uniq.sample(3)
   end
 
   private 

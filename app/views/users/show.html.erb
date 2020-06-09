@@ -62,39 +62,19 @@
               <div class="">
               <% if @user.followers.any? %>
                 <ul class="list-unstyled mb-0">
-                    <li class="list-group-item">
-                      <div class="row d-flex justify-content-start border-bottom pb-2 mb-3">
-                        <div class="col-2 col-md-2 col-lg-3 p-0  pr-xs-2">
-                        <%= image_tag(@fol1.avatar, class:'rounded-circle card-img-top circle', size: "45x48") %>
+                    <% @followers.each do |user| %>
+                      <li class="list-group-item">
+                        <div class="row d-flex justify-content-start border-bottom pb-2 mb-3">
+                          <div class="col-2 col-md-2 col-lg-3 p-0  pr-xs-2">
+                          <%= image_tag(user.follower.avatar, class:'rounded-circle card-img-top circle', size: "45x48") %>
+                          </div>
+                          <div class="col-10 col-md-10 col-lg-9 m-2">                  
+                            <p><%= link_to user.follower.username, user_path(user.follower), class:'text-decoration-none text-dark font-weight-bolder' %></p>
+                            <span class=" font-weight-bolder text-black-50"><%= user.follower.fullname %></span>
+                          </div>              
                         </div>
-                        <div class="col-10 col-md-10 col-lg-9 m-2">                  
-                          <p><%= link_to @fol1.username, user_path(@fol1), class:'text-decoration-none text-dark font-weight-bolder' %></p>
-                          <span class=" font-weight-bolder text-black-50"><%= @fol1.fullname %></span>
-                        </div>              
-                      </div>
-                    </li>
-                    <li class="list-group-item">
-                      <div class="row d-flex justify-content-start border-bottom pb-2 mb-3">
-                        <div class="col-2 col-md-2 col-lg-3 p-0  pr-xs-2">
-                        <%= image_tag(@fol2.avatar, class:'rounded-circle card-img-top circle', size: "45x48") %>
-                        </div>
-                        <div class="col-10 col-md-10 col-lg-9 m-2">                  
-                          <p><%= link_to @fol2.username, user_path(@fol2), class:'text-decoration-none text-dark font-weight-bolder' %></p>
-                          <span class=" font-weight-bolder text-black-50"><%= @fol2.fullname %></span>
-                        </div>              
-                      </div>
-                    </li>
-                    <li class="list-group-item">
-                      <div class="row d-flex justify-content-start border-bottom pb-2 mb-3">
-                        <div class="col-2 col-md-2 col-lg-3 p-0  pr-xs-2">
-                        <%= image_tag(@fol3.avatar, class:'rounded-circle card-img-top circle', size: "45x48") %>
-                        </div>
-                        <div class="col-10 col-md-10 col-lg-9 m-2">                  
-                          <p><%= link_to @fol3.username, user_path(@fol3), class:'text-decoration-none text-dark font-weight-bolder' %></p>
-                          <span class=" font-weight-bolder text-black-50"><%= @fol3.fullname %></span>
-                        </div>              
-                      </div>
-                    </li>
+                      </li>
+                    <% end %>                    
                   </ul>
                   <% end %>
               </div>
