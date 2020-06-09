@@ -1,1 +1,1 @@
-json.array! @gambits, partial: "gambits/gambit", as: :gambit
+json.array! @gambits, partial: 'gambits/gambit', as: :gambit

@@ -20,5 +20,4 @@ class LikesController < ApplicationController
       redirect_back(fallback_location: root_path, alert: 'You cannot dislike gambit that you did not like before.')
     end
   end
-
 end

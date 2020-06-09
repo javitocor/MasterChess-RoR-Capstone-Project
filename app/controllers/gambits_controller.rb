@@ -1,13 +1,13 @@
 class GambitsController < ApplicationController
   require 'will_paginate/array'
-  before_action :set_gambit, only: [:show, :edit, :update, :destroy]
+  before_action :set_gambit, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
   # GET /gambits
   # GET /gambits.json
   def index
     @gambit = Gambit.new
-    @user = User.all    
+    @user = User.all
     timeline_gambit.paginate(page: params[:page], per_page: 2)
     @a1 = not_friends.sample
     @a2 = not_friends.sample
@@ -16,8 +16,7 @@ class GambitsController < ApplicationController
 
   # GET /gambits/1
   # GET /gambits/1.json
-  def show
-  end
+  def show; end
 
   # GET /gambits/new
   def new
@@ -25,8 +24,7 @@ class GambitsController < ApplicationController
   end
 
   # GET /gambits/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /gambits
   # POST /gambits.json
@@ -40,7 +38,6 @@ class GambitsController < ApplicationController
       render :index, alert: 'Gambit was not created.'
     end
   end
-
 
   # PATCH/PUT /gambits/1
   # PATCH/PUT /gambits/1.json
@@ -67,29 +64,30 @@ class GambitsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_gambit
-      @gambit = Gambit.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def gambit_params
-      params.require(:gambit).permit(:text)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_gambit
+    @gambit = Gambit.find(params[:id])
+  end
 
-    def timeline_gambit 
-      @timeline_gambits = Gambit.all.ordered_by_most_recent.includes(:user).select do |gambit|
-        gambit.user_id == friends_gambits(gambit.user_id)
-      end
-    end
+  # Only allow a list of trusted parameters through.
+  def gambit_params
+    params.require(:gambit).permit(:text)
+  end
 
-    def friends_gambits(user)
-      user if Following.where(follower_id: current_user.id, followed_id: user).exists? || user == current_user.id
-    end    
-
-    def not_friends
-      @not = User.all.select do |user| 
-        !Following.where(follower_id: current_user.id ,followed_id: user.id).exists?
-      end
+  def timeline_gambit
+    @timeline_gambits = Gambit.all.ordered_by_most_recent.includes(:user).select do |gambit|
+      gambit.user_id == friends_gambits(gambit.user_id)
     end
+  end
+
+  def friends_gambits(user)
+    user if Following.where(follower_id: current_user.id, followed_id: user).exists? || user == current_user.id
+  end
+
+  def not_friends
+    @not = User.all.select do |user|
+      !Following.where(follower_id: current_user.id, followed_id: user.id).exists?
+    end
+  end
 end

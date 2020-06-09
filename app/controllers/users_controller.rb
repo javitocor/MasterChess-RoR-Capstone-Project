@@ -14,5 +14,4 @@ class UsersController < ApplicationController
       @fol3 = @user.random
     end
   end
-
 end

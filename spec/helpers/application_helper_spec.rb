@@ -12,12 +12,12 @@ require 'capybara/rspec'
 #   end
 # end
 RSpec.describe ApplicationHelper, type: :helper do
-  context 'Testing title' do 
-    it "returns the default title" do
-      expect(helper.full_title).to eq("Masterchess")
+  context 'Testing title' do
+    it 'returns the default title' do
+      expect(helper.full_title).to eq('Masterchess')
     end
-    it "returns the correct title" do
-      expect(helper.full_title("Home")).to eq("Home | Masterchess")
+    it 'returns the correct title' do
+      expect(helper.full_title('Home')).to eq('Home | Masterchess')
     end
   end
 end

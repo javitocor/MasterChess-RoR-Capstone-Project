@@ -34,18 +34,18 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
+gem 'aws-sdk-s3', require: false
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
+gem 'bootstrap-will_paginate', '~> 1.0'
 gem 'devise'
+gem 'faker', '~> 2.11'
+gem 'jquery-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
-gem 'will_paginate', '~> 3.3'
-gem 'bootstrap-will_paginate', '~> 1.0'
-gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'sassc-rails', '>= 2.1.0'
-gem 'jquery-rails'
-gem 'faker', '~> 2.11'
 gem 'simple_form', '~> 5.0', '>= 5.0.2'
-gem "aws-sdk-s3", require: false
+gem 'will_paginate', '~> 3.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -74,4 +74,4 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

@@ -9,10 +9,10 @@ RSpec.describe Gambit, type: :model do
   end
   context 'Validations for gambits' do
     it { should validate_presence_of(:text) }
-    it { should validate_length_of(:text).is_at_most(1000).with_long_message("1000 characters in gambit is the maximum allowed.") }
+    it { should validate_length_of(:text).is_at_most(1000).with_long_message('1000 characters in gambit is the maximum allowed.') }
   end
-  context 'Testing scopes for gambit' do 
-    it "applies a default scope to gambits by most recent" do
+  context 'Testing scopes for gambit' do
+    it 'applies a default scope to gambits by most recent' do
       expect(Gambit.all.ordered_by_most_recent.to_sql).to eq Gambit.all.order(created_at: :desc).to_sql
     end
   end

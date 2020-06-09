@@ -7,14 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 50.times do |n|
-    email = "example-#{n+1}@microverse.org"
-    User.create!(
-      username: Faker::Name.first_name,
-      fullname: 'Charlie',
-      email: email,
-      password: 'password',
-      password_confirmation: 'password'
-    )
-    user = User.find(n+1)
-    user.gambits.create!(text: 'Hello! I am a testing gambit')
-  end
+  email = "example-#{n + 1}@microverse.org"
+  User.create!(
+    username: Faker::Name.first_name,
+    fullname: 'Charlie',
+    email: email,
+    password: 'password',
+    password_confirmation: 'password'
+  )
+  user = User.find(n + 1)
+  user.gambits.create!(text: 'Hello! I am a testing gambit')
+end

@@ -1,1 +1,1 @@
-json.partial! "gambits/gambit", gambit: @gambit
+json.partial! 'gambits/gambit', gambit: @gambit
