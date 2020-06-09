@@ -1,5 +1,4 @@
 class GambitsController < ApplicationController
-  # rubocop:disable  Style/InverseMethods
   require 'will_paginate/array'
   before_action :set_gambit, only: %i[show edit update destroy]
   before_action :authenticate_user!
@@ -56,7 +55,7 @@ class GambitsController < ApplicationController
     respond_to do |format|
       if @gambit.destroy
         format.html { redirect_to gambits_url, notice: 'Gambit was successfully destroyed.' }
-      else 
+      else
         redirect_back(fallback_location: root_path, alert: @gambit.errors.full_messages.join('. ').to_s)
       end
     end
@@ -90,4 +89,3 @@ class GambitsController < ApplicationController
     end
   end
 end
-# rubocop:enable  Style/InverseMethods

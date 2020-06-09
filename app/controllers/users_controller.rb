@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  # rubocop:disable  Style/GuardClause
   before_action :authenticate_user!
 
   def index
@@ -9,9 +8,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @gambits = @user.gambits.ordered_by_most_recent
-    if @user.followers.any?
-      @followers = @user.random
-    end
+    @followers = @user.random if @user.followers.any?
   end
 end
-# rubocop:enable  Style/GuardClause

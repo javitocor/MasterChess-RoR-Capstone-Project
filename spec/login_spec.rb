@@ -1,6 +1,6 @@
 require 'rails_helper'
 require 'capybara/rspec'
-# rubocop:disable  Layout/LineLength
+# rubocop:disable  Layout/LineLength, Metrics/BlockLength
 RSpec.describe 'Login and signup features', type: :feature do
   context 'login and logout' do
     let(:user) { User.create(id: '1', username: 'Peter', fullname: 'Peter Grif', email: 'peter@example.com', password: 'password') }
@@ -19,21 +19,21 @@ RSpec.describe 'Login and signup features', type: :feature do
       click_link 'Resign'
       expect(page).to have_content('Sign In')
     end
-    scenario 'validating email' do 
+    scenario 'validating email' do
       visit new_user_session_path
       fill_in 'user_email', with: 'thing@.com'
       fill_in 'user_password', with: user.password
       click_button 'Log in'
       expect(page).to have_content('Invalid Email or password.')
     end
-    scenario 'validating password' do 
+    scenario 'validating password' do
       visit new_user_session_path
       fill_in 'user_email', with: user.email
       fill_in 'user_password', with: '56454'
       click_button 'Log in'
       expect(page).to have_content('Invalid Email or password.')
     end
-  end 
+  end
   context 'signup' do
     scenario 'signup' do
       visit new_user_registration_path
@@ -45,12 +45,12 @@ RSpec.describe 'Login and signup features', type: :feature do
       click_button 'Sign Up'
       expect(page).to have_content('Welcome!')
     end
-    scenario 'fail signup' do 
+    scenario 'fail signup' do
       visit new_user_registration_path
       click_button 'Sign Up'
       expect(page).to have_content('Please review the problems below:')
     end
-    scenario 'username validation' do 
+    scenario 'username validation' do
       visit new_user_registration_path
       fill_in 'user_fullname', with: 'Peter Grif'
       fill_in 'user_email', with: 'peter@example.com'
@@ -59,7 +59,7 @@ RSpec.describe 'Login and signup features', type: :feature do
       click_button 'Sign Up'
       expect(page).to have_content("Username can't be blank")
     end
-    scenario 'fullname validation' do 
+    scenario 'fullname validation' do
       visit new_user_registration_path
       fill_in 'user_username', with: 'Peter'
       fill_in 'user_email', with: 'peter@example.com'
@@ -68,7 +68,7 @@ RSpec.describe 'Login and signup features', type: :feature do
       click_button 'Sign Up'
       expect(page).to have_content("Fullname can't be blank")
     end
-    scenario 'email validation' do 
+    scenario 'email validation' do
       visit new_user_registration_path
       fill_in 'user_username', with: 'Peter'
       fill_in 'user_fullname', with: 'Peter Grif'
@@ -77,7 +77,7 @@ RSpec.describe 'Login and signup features', type: :feature do
       click_button 'Sign Up'
       expect(page).to have_content("Email can't be blank")
     end
-    scenario 'password validation' do 
+    scenario 'password validation' do
       visit new_user_registration_path
       fill_in 'user_username', with: 'Peter'
       fill_in 'user_fullname', with: 'Peter Grif'
@@ -85,7 +85,7 @@ RSpec.describe 'Login and signup features', type: :feature do
       click_button 'Sign Up'
       expect(page).to have_content("Password can't be blank")
     end
-    scenario 'Valid email' do 
+    scenario 'Valid email' do
       visit new_user_registration_path
       fill_in 'user_username', with: 'Peter'
       fill_in 'user_fullname', with: 'Peter Grif'
@@ -127,4 +127,4 @@ RSpec.describe 'Login and signup features', type: :feature do
     end
   end
 end
-# rubocop:enable  Layout/LineLength
+# rubocop:enable  Layout/LineLength, Metrics/BlockLength

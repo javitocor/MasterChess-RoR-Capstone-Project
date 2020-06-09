@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-  after_commit :add_default_avatar, on: [:create, :update]
-  after_commit :add_default_cover, on: [:create, :update]
+  # rubocop:disable  Layout/LineLength, Style/GuardClause
+  after_commit :add_default_avatar, on: %i[create update]
+  after_commit :add_default_cover, on: %i[create update]
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -23,18 +24,18 @@ class User < ApplicationRecord
     followers.uniq.sample(3)
   end
 
-  private 
+  private
 
   def add_default_avatar
     unless avatar.attached?
-      self.avatar.attach(io: File.open(Rails.root.join("app", "assets", "images", "avatar_default.jpg")), filename: 'avatar_default.jpg' , content_type: "image/jpg")
+      avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'avatar_default.jpg')), filename: 'avatar_default.jpg', content_type: 'image/jpg')
     end
   end
 
   def add_default_cover
     unless cover_photo.attached?
-      self.cover_photo.attach(io: File.open(Rails.root.join("app", "assets", "images", "cover_default.jpg")), filename: 'cover_default.jpg' , content_type: "image/jpg")
+      cover_photo.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'cover_default.jpg')), filename: 'cover_default.jpg', content_type: 'image/jpg')
     end
   end
-
 end
+# rubocop:enable  Layout/LineLength, Style/GuardClause
