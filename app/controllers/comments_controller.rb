@@ -15,9 +15,13 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment.destroy
+    
     respond_to do |format|
-      format.html { redirect_back(fallback_location: root_path, notice: 'Comment was successfully destroyed.') }
+      if @comment.destroy
+        format.html { redirect_back(fallback_location: root_path, notice: 'Comment was successfully destroyed.') }
+      else 
+        redirect_back(fallback_location: root_path, alert: @comment.errors.full_messages.join('. ').to_s)
+      end
     end
   end
 

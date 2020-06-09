@@ -10,7 +10,7 @@ class GambitsController < ApplicationController
     @gambit = Gambit.new
     @user = User.all
     timeline_gambit.paginate(page: params[:page], per_page: 2)
-    @a1 = not_friends.sample
+    @a1 = not_friends.sample(3)
     @a2 = not_friends.sample
     @a3 = not_friends.sample
   end
@@ -55,9 +55,12 @@ class GambitsController < ApplicationController
   # DELETE /gambits/1
   # DELETE /gambits/1.json
   def destroy
-    @gambit.destroy
     respond_to do |format|
-      format.html { redirect_to gambits_url, notice: 'Gambit was successfully destroyed.' }
+      if @gambit.destroy
+        format.html { redirect_to gambits_url, notice: 'Gambit was successfully destroyed.' }
+      else 
+        redirect_back(fallback_location: root_path, alert: @gambit.errors.full_messages.join('. ').to_s)
+      end
     end
   end
 
