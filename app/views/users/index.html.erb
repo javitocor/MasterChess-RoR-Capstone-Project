@@ -9,7 +9,7 @@
                     <li class="list-group-item">
                       <div class="row d-flex justify-content-start border-bottom pb-2 mb-3">
                         <div class="col-2 col-md-2 col-lg-3 p-0  pr-xs-2">
-                        <%= display_avatar(user.id) %>
+                        <%= image_tag(user.avatar, class:'rounded-circle card-img-top circle', size: "45x48") %>
                         </div>
                         <div class="col-7 col-md-7 col-lg-6 m-2">                  
                           <p><%= link_to user.username, user_path(user), class:'text-decoration-none text-dark font-weight-bolder' %></p>
