@@ -234,7 +234,8 @@ text-align:center;
 }
 
 .aside {
-  background-color: rgba(4, 4, 27, 0.993);
+  background: rgba(4,4,27, 0.993);
+background: linear-gradient(18deg, rgba(4,4,27,0.93) 24%, rgba(13,13,73,0.93) 90%);
 }
 
 .follow {
