@@ -2,11 +2,8 @@
     <div class="blog-comment">
       <ul class="comments">
         <li class="clearfix">
-          <% if gambit.user.avatar.attached? %>
-            <%= image_tag gambit.user.avatar, class:'avatar' %>
-          <% else %>
-            <%= image_tag('avatar_default.jpg', class:'avatar') %>
-          <% end %>
+          <%= image_tag(gambit.user.avatar, class: 'avatar') %>
+          
           <div class="post-comments">
             <div class="likediv w-100 mb-2">
               <%= link_to gambit.user.username, user_path(gambit.user) %>

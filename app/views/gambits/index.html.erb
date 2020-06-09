@@ -44,11 +44,7 @@
                     <li class="list-group-item">
                       <div class="row d-flex justify-content-start border-bottom pb-2 mb-3">
                         <div class="col-2 col-md-2 col-lg-3 p-0  pr-xs-2">
-                        <% if @a1.avatar.attached? %>
-                            <%= image_tag @a1.avatar, class:'rounded-circle card-img-top circle', size: "45x48" %>
-                          <% else %>
-                            <%= image_tag('avatar_default.jpg', class:'rounded-circle card-img-top circle', size: "45x48") %>
-                          <% end %>
+                        <%= display_avatar(@a1.id) %>
                         </div>
                         <div class="col-10 col-md-10 col-lg-9 m-2">                  
                           <p><%= link_to @a1.username, user_path(@a1), class:'text-decoration-none text-dark font-weight-bolder' %></p>
@@ -59,11 +55,7 @@
                     <li class="list-group-item">
                       <div class="row d-flex justify-content-start border-bottom pb-2 mb-3">
                         <div class="col-2 col-md-2 col-lg-3 p-0  pr-xs-2">
-                        <% if @a2.avatar.attached? %>
-                            <%= image_tag @a2.avatar, class:'rounded-circle card-img-top circle', size: "45x48" %>
-                          <% else %>
-                            <%= image_tag('avatar_default.jpg', class:'rounded-circle card-img-top circle', size: "45x48") %>
-                          <% end %>
+                        <%= display_avatar(@a2.id) %>
                         </div>
                         <div class="col-10 col-md-10 col-lg-9 m-2">                  
                           <p><%= link_to @a2.username, user_path(@a2), class:'text-decoration-none text-dark font-weight-bolder' %></p>
@@ -74,11 +66,7 @@
                     <li class="list-group-item">
                       <div class="row d-flex justify-content-start border-bottom pb-2 mb-3">
                         <div class="col-2 col-md-2 col-lg-3 p-0  pr-xs-2">
-                        <% if @a3.avatar.attached? %>
-                            <%= image_tag @a3.avatar, class:'rounded-circle card-img-top circle', size: "45x48" %>
-                          <% else %>
-                            <%= image_tag('avatar_default.jpg', class:'rounded-circle card-img-top circle', size: "45x48") %>
-                          <% end %>
+                        <%= display_avatar(@a3.id) %>
                         </div>
                         <div class="col-10 col-md-10 col-lg-9 m-2">                  
                           <p><%= link_to @a3.username, user_path(@a3), class:'text-decoration-none text-dark font-weight-bolder' %></p>

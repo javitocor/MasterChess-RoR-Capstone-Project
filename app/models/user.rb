@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  after_commit :add_default_avatar, on: [:create, :update]
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -20,4 +21,12 @@ class User < ApplicationRecord
   def random
     followers.sample.follower
   end
+  private 
+
+  def add_default_avatar
+    unless avatar.attached?
+      self.avatar.attach(io: File.open(Rails.root.join("app", "assets", "images", "default.jpeg")), filename: 'avatar_default.jpg' , content_type: "image/jpg")
+    end
+  end
+
 end

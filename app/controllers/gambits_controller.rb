@@ -10,7 +10,7 @@ class GambitsController < ApplicationController
     @gambit = Gambit.new
     @user = User.all
     timeline_gambit.paginate(page: params[:page], per_page: 2)
-    @a1 = not_friends.sample(3)
+    @a1 = not_friends.sample
     @a2 = not_friends.sample
     @a3 = not_friends.sample
   end
