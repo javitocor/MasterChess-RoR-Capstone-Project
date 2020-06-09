@@ -46,10 +46,8 @@ class GambitsController < ApplicationController
     respond_to do |format|
       if @gambit.update(gambit_params)
         format.html { redirect_to @gambit, notice: 'Gambit was successfully updated.' }
-        format.json { render :show, status: :ok, location: @gambit }
       else
         format.html { render :edit }
-        format.json { render json: @gambit.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -60,7 +58,6 @@ class GambitsController < ApplicationController
     @gambit.destroy
     respond_to do |format|
       format.html { redirect_to gambits_url, notice: 'Gambit was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

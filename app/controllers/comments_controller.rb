@@ -18,7 +18,6 @@ class CommentsController < ApplicationController
     @comment.destroy
     respond_to do |format|
       format.html { redirect_back(fallback_location: root_path, notice: 'Comment was successfully destroyed.') }
-      format.json { head :no_content }
     end
   end
 
