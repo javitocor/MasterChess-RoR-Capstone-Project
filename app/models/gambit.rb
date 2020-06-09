@@ -1,4 +1,5 @@
 class Gambit < ApplicationRecord
+  # rubocop:disable  Layout/LineLength
   validates :text, presence: true, length: { maximum: 1000,
                                              too_long: '1000 characters in gambit is the maximum allowed.' }
 
@@ -13,3 +14,4 @@ class Gambit < ApplicationRecord
     where('lower(users.username) LIKE :search OR lower(users.fullname) LIKE :search OR lower(gambits.text) LIKE :search', search: "%#{search.downcase}%")
   end
 end
+# rubocop:enable  Layout/LineLength

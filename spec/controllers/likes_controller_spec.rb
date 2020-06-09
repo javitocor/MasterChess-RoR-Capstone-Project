@@ -1,6 +1,6 @@
 require 'rails_helper'
 require 'capybara/rspec'
-
+# rubocop:disable  Layout/LineLength
 RSpec.describe LikesController, type: :feature do
   context 'Likes management' do
     before :each do
@@ -27,3 +27,4 @@ RSpec.describe LikesController, type: :feature do
     end
   end
 end
+# rubocop:enable  Layout/LineLength

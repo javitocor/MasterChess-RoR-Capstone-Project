@@ -1,4 +1,5 @@
 module ApplicationHelper
+  # rubocop:disable  Layout/LineLength
   def full_title(page_title = '')
     base_title = 'Masterchess'
     if page_title.empty?
@@ -26,3 +27,4 @@ module ApplicationHelper
     end
   end
 end
+# rubocop:enable  Layout/LineLength

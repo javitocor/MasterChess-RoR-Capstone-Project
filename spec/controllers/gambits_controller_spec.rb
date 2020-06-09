@@ -1,6 +1,6 @@
 require 'rails_helper'
 require 'capybara/rspec'
-
+# rubocop:disable  Layout/LineLength,  Metrics/BlockLength
 RSpec.describe GambitsController, type: :feature do
   context 'GET gambits controller views' do
     let(:user) { User.create(id: '1', username: 'Peter', fullname: 'Peter Grif', email: 'peter@example.com', password: 'password') }
@@ -82,3 +82,4 @@ RSpec.describe GambitsController, type: :feature do
     end
   end
 end
+# rubocop:enable  Layout/LineLength,  Metrics/BlockLength

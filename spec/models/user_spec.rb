@@ -1,6 +1,6 @@
 require 'rails_helper'
 require 'capybara/rspec'
-
+# rubocop:disable  Layout/LineLength
 RSpec.describe User, type: :model do
   context 'User associations tests' do
     it { should have_many(:gambits) }
@@ -21,3 +21,4 @@ RSpec.describe User, type: :model do
     it { expect(user.cover_photo).not_to be_attached }
   end
 end
+# rubocop:enable  Layout/LineLength

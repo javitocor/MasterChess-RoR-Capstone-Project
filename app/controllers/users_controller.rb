@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  # rubocop:disable  Style/GuardClause
   before_action :authenticate_user!
 
   def index
@@ -15,3 +16,4 @@ class UsersController < ApplicationController
     end
   end
 end
+# rubocop:enable  Style/GuardClause

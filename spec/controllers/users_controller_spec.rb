@@ -1,6 +1,6 @@
 require 'rails_helper'
 require 'capybara/rspec'
-
+# rubocop:disable  Layout/LineLength
 RSpec.describe UsersController, type: :feature do
   context 'GET users controller views' do
     let(:user) { User.create(id: '1', username: 'Peter', fullname: 'Peter Grif', email: 'peter@example.com', password: 'password') }
@@ -18,3 +18,4 @@ RSpec.describe UsersController, type: :feature do
     end
   end
 end
+# rubocop:enable  Layout/LineLength

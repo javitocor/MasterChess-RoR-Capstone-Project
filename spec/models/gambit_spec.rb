@@ -1,6 +1,6 @@
 require 'rails_helper'
 require 'capybara/rspec'
-
+# rubocop:disable  Layout/LineLength
 RSpec.describe Gambit, type: :model do
   context 'Gambit associations tests' do
     it { should belong_to(:user) }
@@ -17,3 +17,4 @@ RSpec.describe Gambit, type: :model do
     end
   end
 end
+# rubocop:enable  Layout/LineLength

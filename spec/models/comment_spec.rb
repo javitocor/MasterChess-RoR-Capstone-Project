@@ -1,6 +1,6 @@
 require 'rails_helper'
 require 'capybara/rspec'
-
+# rubocop:disable  Layout/LineLength
 RSpec.describe Comment, type: :model do
   context 'Comments associations tests' do
     it { should belong_to(:user) }
@@ -11,3 +11,4 @@ RSpec.describe Comment, type: :model do
     it { should validate_length_of(:content).is_at_most(200).with_long_message('200 characters in comment is the maximum allowed.') }
   end
 end
+# rubocop:enable  Layout/LineLength

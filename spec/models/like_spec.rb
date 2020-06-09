@@ -1,6 +1,6 @@
 require 'rails_helper'
 require 'capybara/rspec'
-
+# rubocop:disable  Layout/LineLength
 RSpec.describe Like, type: :model do
   context 'Like associations tests' do
     it { should belong_to(:user) }
@@ -15,3 +15,4 @@ RSpec.describe Like, type: :model do
     end
   end
 end
+# rubocop:enable  Layout/LineLength

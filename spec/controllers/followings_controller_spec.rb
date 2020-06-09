@@ -1,6 +1,6 @@
 require 'rails_helper'
 require 'capybara/rspec'
-
+# rubocop:disable  Layout/LineLength
 RSpec.describe FollowingsController, type: :feature do
   context 'Followings management' do
     let(:user) { User.create(id: '1', username: 'Peter', fullname: 'Peter Grif', email: 'peter@example.com', password: 'password') }
@@ -26,3 +26,4 @@ RSpec.describe FollowingsController, type: :feature do
     end
   end
 end
+# rubocop:enable  Layout/LineLength

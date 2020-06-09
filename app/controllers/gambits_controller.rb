@@ -1,4 +1,5 @@
 class GambitsController < ApplicationController
+  # rubocop:disable  Style/InverseMethods
   require 'will_paginate/array'
   before_action :set_gambit, only: %i[show edit update destroy]
   before_action :authenticate_user!
@@ -91,3 +92,4 @@ class GambitsController < ApplicationController
     end
   end
 end
+# rubocop:enable  Style/InverseMethods
