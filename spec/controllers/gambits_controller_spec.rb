@@ -32,6 +32,11 @@ RSpec.describe GambitsController, type: :feature do
       click_button 'Gambit'
       expect(page).to have_content('Gambit testing')
     end
+    scenario 'Do not create a gambit' do
+      visit root_path
+      click_button 'Gambit'
+      expect(page).to have_content('Gambit was not created.')
+    end
     scenario 'Display only gambits of following users' do
       user2 = User.create(id: '2', username: 'Mick', fullname: 'Mick Jag', email: 'mick@example.com', password: 'password')
       visit user_path(user2)

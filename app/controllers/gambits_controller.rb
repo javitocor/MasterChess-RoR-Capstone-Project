@@ -33,8 +33,8 @@ class GambitsController < ApplicationController
     if @gambit.save
       redirect_to root_path, notice: 'Gambit was successfully created.'
     else
-      timeline_posts
-      render :index, alert: 'Gambit was not created.'
+      timeline_gambit
+      redirect_back(fallback_location: root_path, alert: 'Gambit was not created.')
     end
   end
 
