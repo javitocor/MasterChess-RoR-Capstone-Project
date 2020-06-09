@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_08_125518) do
+ActiveRecord::Schema.define(version: 2020_06_09_093156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(version: 2020_06_08_125518) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "authentication_providers", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_name_on_authentication_providers"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -72,6 +79,30 @@ ActiveRecord::Schema.define(version: 2020_06_08_125518) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "social_accounts", force: :cascade do |t|
+    t.string "token"
+    t.string "secret"
+    t.bigint "user_id"
+    t.bigint "authentication_provider_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["authentication_provider_id"], name: "index_social_accounts_on_authentication_provider_id"
+    t.index ["user_id"], name: "index_social_accounts_on_user_id"
+  end
+
+  create_table "user_authentications", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "authentication_provider_id"
+    t.string "uid"
+    t.string "token"
+    t.datetime "token_expires_at"
+    t.text "params"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["authentication_provider_id"], name: "index_user_authentications_on_authentication_provider_id"
+    t.index ["user_id"], name: "index_user_authentications_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -96,4 +127,6 @@ ActiveRecord::Schema.define(version: 2020_06_08_125518) do
   add_foreign_key "gambits", "users"
   add_foreign_key "likes", "gambits"
   add_foreign_key "likes", "users"
+  add_foreign_key "social_accounts", "authentication_providers"
+  add_foreign_key "social_accounts", "users"
 end
