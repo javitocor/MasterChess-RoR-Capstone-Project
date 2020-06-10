@@ -1,3 +1,33 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'static_pages/learn'
+  get 'static_pages/tactics'
+  get 'static_pages/historical'
+  get 'followings/create'
+  get 'followings/destroy'
+  root 'gambits#index'
+
+  devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret',
+                                   confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'cmon_let_me_in' }
+
+  devise_scope :user do
+    get '/login', to: 'devise/sessions#new'
+    get '/signup', to: 'registrations#new'
+    post '/login', to: 'devise/sessions#create'
+    authenticated :user do
+      root 'gambits#index'
+    end
+    unauthenticated do
+      root 'devise/sessions#new'
+    end
+  end
+
+  resources :users, only: %i[index show] do
+    resources :followings, only: %i[create destroy]
+  end
+  resources :gambits do
+    resources :comments, only: %i[create destroy]
+    resources :likes, only: %i[create destroy]
+  end
+
+  get '/search', to: 'searches#search'
 end

@@ -1,0 +1,17 @@
+<% provide(:title, "Search") %>
+<div class="container-fluid">
+<div class="card my-4" style="display:flex; justify-content: center;">
+            <div class="card-body" style="width:50%;">
+              <h1 style="text-align: center">Search Result</h1>
+              <div class="">
+                <ul class="list-unstyled mb-0">
+                    <% @results.each do |result| %>
+                    <li class="list-group-item">
+                      <%= result.text %>  | <%= link_to result.user.username, user_path(result.user.id) %>
+                    </li>
+                    <%end %> 
+                  </ul>                  
+              </div>    
+            </div>            
+          </div>
+          </div>

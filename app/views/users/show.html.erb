@@ -1,0 +1,90 @@
+<% provide(:title, "#{@user.username}") %>
+<div class="container-fluid">
+  <div class="col-md-8 bg-secondary"> 
+        <div>
+          <%= image_tag(@user.cover_photo, size: "695x300") %>
+        </div> 
+        <br>        
+          <div class="form-group bg-white">
+            <form>
+                <div class="form-group">
+                    <label for="comment">Gambit to <%= @user.username %>:</label>
+                    <textarea class="form-control" rows="2" id="comment"></textarea>
+                </div>
+                <button class="btn btn-primary my-2 my-sm-0" type="submit">Gambit</button>
+            </form>
+          </div>
+          <h3 class="my-4">Your Recent Gambits</h3>
+
+          <!-- Blog Post -->
+          <div class="list-group">
+              <%= render @gambits %>
+          </div>
+
+          <!-- Pagination -->
+          <ul class="pagination justify-content-center mb-4">
+          </ul>
+
+        </div>
+
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-3">
+            <div>
+              <div class="card text-center">
+                <%= image_tag(@user.avatar, class:'rounded-circle card-img-top circle', size: "120x120") %>
+                <div class="card-body dist">
+                  <p class="card-title show_name"><%= @user.username %></p>
+                  <p class="card-text show-full"><%= @user.fullname %></p>
+                  <% if current_user != @user %>
+                    <button type="button" class="btn btn-primary"><%= link_to follow_or_unfollow_btn(@user) %></button>                    
+                  <% end %>
+                </div>
+              </div>
+              <div class="info-user">
+                <div class="user-info">
+                  <div><%= @user.gambits.count %></div>
+                  <div>Gambits</div>
+                </div>
+                <div class="user-info">
+                  <div><%= @user.friends.count %></div>
+                  <div>Following</div>
+                </div>
+                <div class="user-info">
+                  <div><%= @user.followers.count %></div>
+                  <div>Followers</div>
+                </div>
+              </div>
+            </div>
+          <!-- Search Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">FOLLOWED BY:</h5>
+            <div class="card-body">
+              <div class="">
+              <% if @user.followers.any? %>
+                <ul class="list-unstyled mb-0">
+                    <% @followers.each do |user| %>
+                      <li class="list-group-item">
+                        <div class="row d-flex justify-content-start border-bottom pb-2 mb-3">
+                          <div class="col-2 col-md-2 col-lg-3 p-0  pr-xs-2">
+                          <%= image_tag(user.follower.avatar, class:'rounded-circle card-img-top circle', size: "45x48") %>
+                          </div>
+                          <div class="col-10 col-md-10 col-lg-9 m-2">                  
+                            <p><%= link_to user.follower.username, user_path(user.follower), class:'text-decoration-none text-dark font-weight-bolder' %></p>
+                            <span class=" font-weight-bolder text-black-50"><%= user.follower.fullname %></span>
+                          </div>              
+                        </div>
+                      </li>
+                    <% end %>                    
+                  </ul>
+                  <% end %>
+              </div>
+            </div>
+          </div> 
+  </div>
+</div>
+
+
+
+
+
+
