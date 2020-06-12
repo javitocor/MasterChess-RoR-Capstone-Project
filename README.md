@@ -109,6 +109,8 @@ Open `http://localhost:3000/` in your browser.
 ### Deployment
 
 - App deployed in Heroku.
+## Future Features
+- Add Twitter and Facebook authentication
 
 ## Author
 
