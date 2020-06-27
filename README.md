@@ -1,16 +1,16 @@
 # Masterchess - RoR Capstone Project
 
-> This project it was built on top of my knowledge of RoR.
+> This project was built on top of my knowledge of RoR.
 
 ![screenshot](/app/assets/images/screenshot1.png) ![screenshot](/app/assets/images/screenshot2.png)
 
 ## What it does
 
-Its a social media app similar to Twitter but focus in chess players.
+Its a social media app similar to Twitter but focus on chess players.
 
 *As a guest user:*
 
-- You will be able to create account/log in.
+- You will be able to create an account/log in.
 - You can see only “Sign in” and “Sign out” page.
 
 *As a logged-in user:*
@@ -18,14 +18,14 @@ Its a social media app similar to Twitter but focus in chess players.
 - You will be able to see all users list.
 - You will be able to see selected user page with their user name and all gambits written by them (the most recent posts on the top).
 - You will be able to follow a user.
-- You will see a button “Follow” next to the name of user who your are not following yet - on both users’ list and single user page.
+- You will see a button “Follow” next to the name of the user who you are not following yet - on both users’ list and single-user page.
 - You will be able to create new gambits (text only).
-- You will be able to like/dislike gambits (but you can like single post only once).
+- You will be able to like/dislike gambits (but you can like a single post only once).
 - You will be able to add comments to gambits.
-- You will be able to see “Timeline” page with gambits (with number of likes and comments) written by you and all the users yu are following (the most recent posts on the top).
+- You will be able to see “Timeline” page with gambits (with the number of likes and comments) written by you and all the user's you are following (the most recent posts on the top).
 - Timeline page is the root page of the app.
 - You can add your profile photo and your cover photo.
-- You can search a user or a keyword inside a gambit.
+- You can search for a user or a keyword inside a gambit.
 
 ## Built With
 
@@ -87,7 +87,7 @@ Create users with:
 
 ``` bash
    rails db:seed
-   Login with email: 'example-{add a number between 1-50}@microverse.org', and password:'password'
+   Log in with email: 'example-{add a number between 1-50}@microverse.org', and password:'password'
 ```
 
 ### Usage
@@ -130,11 +130,11 @@ Contributions, issues and feature requests are welcome! Start by:
 - Run git checkout -b your-branch-name.
 - Make your contributions.
 - Push your branch up to your forked repository.
-- Open a Pull Request with a detailed description to the development branch of the original project for a review.
+- Open a Pull Request with a detailed description of the development branch of the original project for a review.
 
 ## Show your support
 
-Give a ⭐️ if you like this project!
+Give an ⭐️ if you like this project!
 
 ## Acknowledgments
 
