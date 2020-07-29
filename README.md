@@ -6,7 +6,7 @@
 
 ## What it does
 
-Its a social media app similar to Twitter but focus on chess players.
+It's a social media app similar to Twitter but focused on chess players.
 
 *As a guest user:*
 
